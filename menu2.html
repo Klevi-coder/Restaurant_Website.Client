@@ -1,0 +1,241 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Porosit tani</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('img/crepes_background.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            filter: blur(5px);
+            z-index: -1;
+        }
+
+        h1 {
+            background-color: none;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        form {
+            max-width: 500px;
+            max-height: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            animation: slideIn 0.5s ease-out;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            box-sizing: border-box;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            border-color: #007bff;
+            outline: none;
+            box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        button {
+            padding: 12px 24px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .order-details {
+            margin-top: 20px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            background-color: #fff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .order-details h2 {
+            margin-top: 0;
+            color: #333;
+            font-size: 24px;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 10px;
+        }
+
+        .order-details p {
+            margin: 10px 0;
+            font-size: 16px;
+            color: #555;
+        }
+
+        .order-details p strong {
+            color: #333;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .payment-method {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+
+        .payment-method label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+        }
+
+        .payment-method input[type="radio"] {
+            display: none;
+        }
+
+        .payment-method input[type="radio"] + span {
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(60, 255, 0, 0.93);
+            border-radius: 50%;
+            display: inline-block;
+            position: relative;
+            transition: background-color  0.3s ease;
+        }
+
+        .payment-method input[type="radio"]:checked + span {
+            background-color: rgb(4, 228, 0);
+        }
+
+        .payment-method input[type="radio"]:checked + span::after {
+            content: '';
+            width: 10px;
+            height: 10px;
+            background-color: white;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+    <h1>Porosit tani</h1>
+    <form id="orderForm">
+        <label for="product">Product:</label>
+        <input type="text" id="product" name="product" required>
+
+        <label for="customerName">Customer Name:</label>
+        <input type="text" id="customerName" name="customerName" required>
+
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" name="quantity" required>
+
+        <label for="extraIngredients">Extra Ingredients:</label>
+        <textarea id="extraIngredients" name="extraIngredients"></textarea>
+
+        <label for="address">Address:</label>
+        <textarea id="address" name="address" required></textarea>
+
+        <label for="paymentMethod">Payment Method:</label>
+        <select id="paymentMethod" name="paymentMethod" required>
+            <option value="cash">Cash</option>
+            <option value="card">Card</option>
+        </select>
+
+        <button type="submit">Submit Order</button>
+    </form>
+
+    <div id="orderDetails" class="order-details" style="display: none;">
+        <h2>Order Details</h2>
+        <p><strong>Product:</strong> <span id="displayProduct"></span></p>
+        <p><strong>Customer Name:</strong> <span id="displayCustomerName"></span></p>
+        <p><strong>Quantity:</strong> <span id="displayQuantity"></span></p>
+        <p><strong>Extra Ingredients:</strong> <span id="displayExtraIngredients"></span></p>
+        <p><strong>Address:</strong> <span id="displayAddress"></span></p>
+        <p><strong>Payment Method:</strong> <span id="displayPaymentMethod"></span></p>
+    </div>
+
+    <script>
+        document.getElementById('orderForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const product = document.getElementById('product').value;
+            const customerName = document.getElementById('customerName').value;
+            const quantity = document.getElementById('quantity').value;
+            const extraIngredients = document.getElementById('extraIngredients').value;
+            const address = document.getElementById('address').value;
+            const paymentMethod = document.getElementById('paymentMethod').value;
+
+            document.getElementById('displayProduct').textContent = product;
+            document.getElementById('displayCustomerName').textContent = customerName;
+            document.getElementById('displayQuantity').textContent = quantity;
+            document.getElementById('displayExtraIngredients').textContent = extraIngredients || 'None';
+            document.getElementById('displayAddress').textContent = address;
+            document.getElementById('displayPaymentMethod').textContent = paymentMethod;
+
+            document.getElementById('orderDetails').style.display = 'block';
+        });
+    </script>
+</body>
+</html>

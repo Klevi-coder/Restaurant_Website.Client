@@ -1,0 +1,273 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    <style>
+        /* Body with Blurred Background Image */
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            color: white;
+            text-align: center;
+            position: relative; /* Required for the pseudo-element */
+        }
+
+        /* Pseudo-element for the blurred background */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('img/crepes_background.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: 100vh; /* Ensures the background covers the full viewport height */
+            filter: blur(6px); /* Adjust the blur intensity */
+            z-index: -1; /* Places the background behind the content */
+        }
+
+        /* Content Styling */
+        h1 {
+            font-size: 65px;
+            color: white; /* White text color */
+            padding: 20px;
+            border-radius: 10px;
+            margin: 0; /* Remove default margin */
+        }
+
+        /* Menu Category Styling */
+        .menu-category {
+            margin: 8px 0; /*size of menu*/
+            background: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+            border-radius: 10px;
+            padding: 10px;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            width: 80%;
+            max-width: 600px;
+        }
+
+        .menu-category:hover {
+            transform: translateY(-5px); /* Slight lift on hover */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Shadow on hover */
+        }
+
+        .menu-category h2 {
+            font-size: 24px;
+            color: #333;
+            margin: 0;
+        }
+
+        /* Menu Item Container Styling */
+        .menu-items {
+            max-height: 0; /* Initially collapsed */
+            overflow: hidden; /* Hide overflow content */
+            transition: max-height 0.5s ease, opacity 0.5s ease;
+            opacity: 0;
+        }
+
+        /* Menu Item Styling */
+        .menu-item {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            transform: translateZ(0); /* Enable 3D transformations */
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .menu-item:last-child {
+            border-bottom: none;
+        }
+
+        .menu-item h3 {
+            font-size: 18px;
+            color: #555;
+            margin: 0;
+        }
+
+        .menu-item p {
+            font-size: 14px;
+            color: #777;
+            margin: 5px 0 0;
+        }
+
+        /* Show items when category is active */
+        .menu-category.active .menu-items {
+            max-height: 1000px; /* Adjust based on content height */
+            opacity: 1;
+        }
+
+        /* Pop-up animation for the active category */
+        .menu-category.active {
+            transform: translateY(-10px) translateZ(20px); /* Lift and pop-up effect */
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* Deeper shadow for active state */
+        }
+    </style>
+</head>
+<body>
+    <h1>𝑀𝑒𝓃𝓊</h1>
+
+    <!-- Drinks Section -->
+    <div class="menu-category" onclick="toggleCategory(this)">
+        <h2>Drinks</h2>
+        <div class="menu-items">
+            <div class="menu-item">
+                <h3>Sparkling Water</h3>
+                <p>Refreshing sparkling water with a hint of natural minerals.</p>
+                <button class="add-to-cart" onclick="addToCart('Sparkling Water', 2.99)">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <h3>Lemon Soda</h3>
+                <p>Zesty lemon-flavored sparkling soda.</p>
+                <button class="add-to-cart" onclick="addToCart('Lemon Soda', 3.49)">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <h3>Cola</h3>
+                <p>Classic cola drink with a refreshing taste.</p>
+                <button class="add-to-cart" onclick="addToCart('Cola', 2.99)">Add to Cart</button>
+            </div>
+            <!-- Add more drink items here -->
+        </div>
+    </div>
+
+    <!-- Ice Creams Section -->
+    <div class="menu-category" onclick="toggleCategory(this)">
+        <h2>Ice Creams</h2>
+        <div class="menu-items">
+            <div class="menu-item">
+                <h3>Vanilla</h3>
+                <p>Classic vanilla ice cream made with real vanilla beans.</p>
+                <button class="add-to-cart" onclick="addToCart('Vanilla Ice Cream', 4.99)">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <h3>Chocolate</h3>
+                <p>Rich and creamy chocolate ice cream made with premium cocoa.</p>
+                <button class="add-to-cart" onclick="addToCart('Chocolate Ice Cream', 5.49)">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <h3>Strawberry</h3>
+                <p>Fresh strawberry ice cream with real fruit chunks.</p>
+                <button class="add-to-cart" onclick="addToCart('Strawberry Ice Cream', 5.49)">Add to Cart</button>
+            </div>
+            <!-- Add more ice cream items here -->
+        </div>
+    </div>
+
+    <!-- Crepes Section -->
+    <div class="menu-category" onclick="toggleCategory(this)">
+        <h2>Crepes</h2>
+        <div class="menu-items">
+            <div class="menu-item">
+                <h3>Classic Crepe</h3>
+                <p>Butter, sugar, and a hint of lemon.</p>
+                <button class="add-to-cart" onclick="addToCart('Classic Crepe', 6.99)">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <h3>Nutella Crepe</h3>
+                <p>Rich Nutella spread, sliced bananas, and whipped cream.</p>
+                <button class="add-to-cart" onclick="addToCart('Nut ella Crepe', 7.49)">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <h3>Strawberry Crepe</h3>
+                <p>Fresh strawberries, strawberry syrup, and powdered sugar.</p>
+                <button class="add-to-cart" onclick="addToCart('Strawberry Crepe', 7.49)">Add to Cart</button>
+            </div>
+            <!-- Add more crepe items here -->
+        </div>
+    </div>
+
+    <!-- Waffles Section -->
+    <div class="menu-category" onclick="toggleCategory(this)">
+        <h2>Waffles</h2>
+        <div class="menu-items">
+            <div class="menu-item">
+                <h3>Waffle 1</h3>
+                <p>Ingredients.</p>
+                <button class="add-to-cart" onclick="addToCart('Waffle 1', 5.99)">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <h3>Waffle 2</h3>
+                <p>Ingredients.</p>
+                <button class="add-to-cart" onclick="addToCart('Waffle 2', 5.99)">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <h3>Waffle 3</h3>
+                <p>Ingredients.</p>
+                <button class="add-to-cart" onclick="addToCart('Waffle 3', 5.99)">Add to Cart</button>
+            </div>
+            <!-- Add more waffle items here -->
+        </div>
+    </div>
+
+    <!-- Sandwich Section -->
+    <div class="menu-category" onclick="toggleCategory(this)">
+        <h2>Sandwiches</h2>
+        <div class="menu-items">
+            <div class="menu-item">
+                <h3>Sandwich 1</h3>
+                <p>Ingredients.</p>
+                <button class="add-to-cart" onclick="addToCart('Sandwich 1', 4.99)">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <h3>Sandwich 2</h3>
+                <p>Ingredients.</p>
+                <button class="add-to-cart" onclick="addToCart('Sandwich 2', 4.99)">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <h3>Sandwich 3</h3>
+                <p>Ingredients.</p>
+                <button class="add-to-cart" onclick="addToCart('Sandwich 3', 4.99)">Add to Cart</button>
+            </div>
+            <!-- Add more sandwich items here -->
+        </div>
+    </div>
+
+    <!-- Pizza Section -->
+    <div class="menu-category" onclick="toggleCategory(this)">
+        <h2>Pizza</h2>
+        <div class="menu-items">
+            <div class="menu-item">
+                <h3>Margherita</h3>
+                <p>Tomato sauce, fresh mozzarella, and basil.</p>
+                <button class="add-to-cart" onclick="addToCart('Margherita Pizza', 8.99)">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <h3>Pepperoni</h3>
+                <p>Tomato sauce, mozzarella, and spicy pepperoni.</p>
+                <button class="add-to-cart" onclick="addToCart('Pepperoni Pizza', 9.49)">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <h3>Hawaiian</h3>
+                <p>Tomato sauce, mozzarella, ham, and pineapple.</p>
+                <button class="add-to-cart" onclick="addToCart('Hawaiian Pizza', 9.49)">Add to Cart</button>
+            </div>
+            <!-- Add more pizza items here -->
+        </div>
+    </div>
+
+    <script>
+        function toggleCategory(category) {
+            category.classList.toggle('active');
+        }
+
+        function addToCart(itemName, itemPrice) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.push({ name: itemName, price: itemPrice });
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert(itemName + ' has been added to your cart!');
+        }
+    </script>
+</body>
+</ html>

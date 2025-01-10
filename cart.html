@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <style>
+        /* Full-page background image with blur */
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh; /* Full viewport height */
+            background-image: url('img/delivery_background.jpeg');
+            background-size: cover; /* Ensure the image covers the entire page */
+            background-position: center; /* Center the image */
+            position: relative; /* Required for pseudo-element */
+            overflow: hidden; /* Hide overflow from the blurred background */
+        }
+
+        /* Blurred overlay for the background image */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: inherit; /* Inherit the background image */
+            filter: blur(6px); /* Apply blur effect */
+            z-index: -1; /* Place behind the content */
+        }
+
+        /* Cool and modern styling for the cart container */
+        .cart-container {
+            background: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+            border: none; /* Remove default border */
+            border-radius: 16px; /* More rounded corners */
+            padding: 25px; /* Increased padding */
+            box-shadow: 0 8px 16px rgba(65, 65, 255, 0.15); /* Deeper shadow for depth */
+            max-width: 600px; /* Maximum width of the cart */
+            margin: 50px auto; /* Center the cart horizontally with some top margin */
+            position: relative; /* Ensure it sits above the blurred background */
+        }
+
+        /* Styling for the cart title */
+        .cart-container h1 {
+            font-size: 32px; /* Larger font size for the title */
+            color: #333; /* Dark text color */
+            margin-bottom: 25px; /* Space below the title */
+            text-align: center; /* Center the title */
+            font-weight: 700; /* Bold font weight */
+            text-transform: uppercase; /* Uppercase text */
+            letter-spacing: 1.5px; /* Spacing between letters */
+        }
+
+        /* Styling for the cart items list */
+        #cart-items {
+            list-style-type: none; /* Remove default list bullets */
+            padding: 0; /* Remove default padding */
+            margin: 0; /* Remove default margin */
+        }
+
+        /* Styling for each cart item */
+        .cart-item {
+            display: flex; /* Use flexbox for layout */
+            justify-content: space-between; /* Space out item name and price */
+            align-items: center; /* Align items vertically */
+            padding: 12px 0; /* Padding above and below each item */
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* Subtle border between items */
+            transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth hover effect */
+        }
+
+        /* Hover effect for cart items */
+        .cart-item:hover {
+            transform: translateY(-2px); /* Slight lift on hover */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow on hover */
+            border-radius: 8px; /* Rounded corners on hover */
+            background: rgb(255, 255, 255); /* Light background on hover */
+        }
+
+        /* Styling for the item name and price */
+        .cart-item span {
+            font-size: 18px; /* Font size for the item name */
+            color: #444; /* Slightly darker text color */
+            font-weight: 500; /* Medium font weight */
+        }
+
+        /* Styling for the remove button */
+        .cart-item .remove-item {
+            font-size: 16px; /* Font size for the remove button */
+            color: #ff4b2b; /* Red color for the remove button */
+            cursor: pointer; /* Pointer cursor on hover */
+            transition: color 0.3s ease; /* Smooth transition for hover effect */
+        }
+
+        /* Hover effect for the remove button */
+        .cart-item .remove-item:hover {
+            color: #ff416c; /* Lighter red on hover */
+        }
+
+        /* Styling for the checkout button */
+        .checkout {
+            display: block; /* Make the button a block element */
+            width: 100%; /* Full width */
+            padding: 15px; /* Padding inside the button */
+            background: linear-gradient(90deg, #ff416c, #ff4b2b); /* Gradient background */
+            color: #fff; /* White text color */
+            font-size: 18px; /* Font size for the button text */
+            border: none; /* Remove default border */
+            border-radius: 5px; /* Rounded corners */
+            cursor: pointer; /* Pointer cursor on hover */
+            margin-top: 20px; /* Space above the button */
+            transition: background 0.3s ease, transform 0.2s ease; /* Smooth transition for hover effect */
+        }
+
+        /* Hover effect for the checkout button */
+        .checkout:hover {
+            background: linear-gradient(90deg, #ff4b2b, #ff416c); /* Reverse gradient on hover */
+            transform: scale(1.05); /* Slightly enlarge on hover */
+        }
+
+
+.cart-container {
+    width: 90%;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.cart-slider-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+#cart-items {
+    width: 90%;
+    overflow-y: auto;
+    height: 300px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.slider {
+    width: 10%;
+    text-align: center;
+}
+
+.checkout {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.checkout:hover {
+    background-color: #3e8e41;
+}
+
+
+    
+    </style>
+
+</head>
+<body>
+    <div class="cart-container">
+    <h1>Your Cart</h1>
+    <div class="cart-slider-container">
+        <div id="cart-items" style="overflow-y: auto; height: 300px;">
+            <!-- Cart items will be displayed here -->
+        </div>
+        <div class="slider">
+            <!-- No need for a slider here, the scrollbar will be displayed automatically -->
+        </div>
+    </div>
+    <button class="checkout" onclick="checkout()">Checkout</button>
+    <span>Total Amount:</span>
+    <span id="total-amount">$0.00</span> <!-- Ensure this element exists -->
+</div>
+
+    <script>
+    function loadCart() {
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const cartItemsContainer = document.getElementById('cart-items');
+        cartItemsContainer.innerHTML = '';
+
+        let totalAmount = 0; // Initialize total amount
+
+        cart.forEach((item, index) => {
+            const cartItem = document.createElement('div');
+            cartItem.className = 'cart-item';
+            cartItem.innerHTML = `
+                <span>${item.name} - $${item.price.toFixed(2)}</span>
+                <span class="remove-item" onclick="removeFromCart(${index})">Remove</span>
+            `;
+            cartItemsContainer.appendChild(cartItem);
+
+            // Add item price to total amount
+            totalAmount += item.price;
+        });
+
+        // Update the total amount display
+        const totalAmountElement = document.getElementById('total-amount');
+        totalAmountElement.textContent = `$${totalAmount.toFixed(2)}`;
+    }
+
+    function removeFromCart(index) {
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        cart.splice(index, 1); // Remove the item at the specified index
+        localStorage.setItem('cart', JSON.stringify(cart));
+        loadCart(); // Reload the cart to reflect changes
+    }
+
+    function checkout() {
+        const totalAmount = parseFloat(document.getElementById('total-amount').textContent.replace('$', ''));
+        if (totalAmount > 0) {
+            alert(`Proceeding to checkout. Total Amount: $${totalAmount.toFixed(2)}`);
+            // Implement checkout logic here (e.g., redirect to payment page)
+        } else {
+            alert('Your cart is empty. Add items to proceed to checkout.');
+        }
+    }
+
+    // Load cart items and calculate total on page load
+    window.onload = loadCart;
+
+
+
+
+
+
+    const quantitySlider = document.getElementById('quantity-slider');
+const quantityValue = document.getElementById('quantity-value');
+
+quantitySlider.addEventListener('input', () => {
+    quantityValue.textContent = quantitySlider.value;
+});
+</script>
+</body>
+</html>
