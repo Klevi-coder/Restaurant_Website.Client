@@ -42,7 +42,7 @@
             color: #5e1313;
             font-size: 2.5rem;
             font-weight: 600;
-            line-height: 3;
+            line-height: 2;
             font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
         }
 
@@ -109,8 +109,8 @@
         
         form {
             position: center;
-            max-width: 500px;
-            width: 50%;
+            width: 600px;
+            width: 30%;
             height: 280px;
             margin: 0 auto;
             padding: 25px;

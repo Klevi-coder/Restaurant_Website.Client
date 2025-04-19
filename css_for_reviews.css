@@ -89,7 +89,7 @@
                 
                 .restaurant-name {
                     color: white; /* Set the color here */
-                    font-size: 8rem; /* Increased font size for better visibility */
+                    font-size: 3.5rem; /* Increased font size for better visibility */
                     font-weight: bold; 
                     text-align: center;
                 }
@@ -99,7 +99,7 @@
                 }
                 
                 .intro-overlay .developer-credits {
-                    font-size: 4rem; /* Increased font size for developer credits */
+                    font-size: 2rem; /* Increased font size for developer credits */
                     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
                 
                 }
