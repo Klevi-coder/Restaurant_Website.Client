@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rezervime</title>
+
+    <link rel="stylesheet" href="css_for_rezervime.css">
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('#rezervimiForm').on('submit', function (e) {
+        e.preventDefault(); // Parandalon rifreskimin e faqes
+
+        // Merr të dhënat nga forma
+        const numriPersonave = $('#numriPersonave').val();
+        const vakt = $('#vakt').val();
+        const ora = $('#ora').val();
+        const zona = $('input[name="zona"]:checked').val();
+
+        // Shfaq mesazhin e suksesit
+        $('#mesazhi').html(`
+          Rezervimi u krye me sukses! <br>
+          Detajet: <br>
+          Numri i personave: ${numriPersonave} <br>
+          Vakt: ${vakt} <br>
+          Ora: ${ora} <br>
+          Zona: ${zona} <br>`);
+      });
+    });
+  </script>
+</head>
+<body>
+
+  <!--nav-list-->
+  <ul class="navbar">
+    <a href="faqe_kryesore.html" class="home-active">Faqe Kryesore</a>
+    <a href="menu.html">Menu</a>
+    <a href="delivery.html">Delivery</a>
+    <a href="rezervime.html">Rezervime</a>
+    <a href="cart.html">Cart</a>
+    <a href="reviews.html">Reviews</a>
+    </ul>
+
+            <p>𝓡𝓮𝔃𝓮𝓻𝓿𝓸𝓷𝓲 𝓣𝓻𝔂𝓮𝔃𝓮𝓷 𝓣𝓾𝓪𝓳</p>
+
+            <div class="container">
+              <form id="rezervimiForm">
+          
+                  <label for="numriPersonave" id="labelNumriPersonave">Numri i Personave:</label>
+                  <input type="number" id="numriPersonave" min="1" max="100" required>
+          
+                  <label for="vakt" id="labelVakt">Zgjidhni Vaktin:</label>
+                  <select id="vakt" required>
+                      <option value="dreke">Dreke</option>
+                      <option value="darke">Darke</option>
+                  </select>
+          
+                  <label for="ora" id="labelOra">Zgjidhni Orën:</label>
+                  <input type="time" id="ora" required>
+          
+                  <label for="zona" id="labelZona">Zgjidhni Zonën:</label>
+                  <select id="zona" required>
+                      <option value="Zona A">Zona A</option>
+                      <option value="Zona B">Zona B</option>
+                      <option value="Zona C">Zona C</option>
+                      <option value="Zona D">Zona D</option>
+                  </select>
+          
+                  <button type="submit">Rezervo</button>
+              </form>
+
+    <div id="mesazhi"></div>
+    </div>
+</body>
+</html>

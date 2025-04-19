@@ -6,268 +6,938 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menu</title>
-    <style>
-        /* Body with Blurred Background Image */
-        body {
-            margin: 0;
-            padding: 0;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            font-family: Arial, sans-serif;
-            color: white;
-            text-align: center;
-            position: relative; /* Required for the pseudo-element */
-        }
+    
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css">
+    <link rel="stylesheet" href="css_for_Menu.css">
 
-        /* Pseudo-element for the blurred background */
-        body::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: url('img/crepes_background.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            min-height: 100vh; /* Ensures the background covers the full viewport height */
-            filter: blur(6px); /* Adjust the blur intensity */
-            z-index: -1; /* Places the background behind the content */
-        }
-
-        /* Content Styling */
-        h1 {
-            font-size: 65px;
-            color: white; /* White text color */
-            padding: 20px;
-            border-radius: 10px;
-            margin: 0; /* Remove default margin */
-        }
-
-        /* Menu Category Styling */
-        .menu-category {
-            margin: 8px 0; /*size of menu*/
-            background: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
-            border-radius: 10px;
-            padding: 10px;
-            cursor: pointer;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            width: 80%;
-            max-width: 600px;
-        }
-
-        .menu-category:hover {
-            transform: translateY(-5px); /* Slight lift on hover */
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Shadow on hover */
-        }
-
-        .menu-category h2 {
-            font-size: 24px;
-            color: #333;
-            margin: 0;
-        }
-
-        /* Menu Item Container Styling */
-        .menu-items {
-            max-height: 0; /* Initially collapsed */
-            overflow: hidden; /* Hide overflow content */
-            transition: max-height 0.5s ease, opacity 0.5s ease;
-            opacity: 0;
-        }
-
-        /* Menu Item Styling */
-        .menu-item {
-            padding: 10px;
-            border-bottom: 1px solid #ddd;
-            transform: translateZ(0); /* Enable 3D transformations */
-            transition: opacity 0.3s ease, transform 0.3s ease;
-        }
-
-        .menu-item:last-child {
-            border-bottom: none;
-        }
-
-        .menu-item h3 {
-            font-size: 18px;
-            color: #555;
-            margin: 0;
-        }
-
-        .menu-item p {
-            font-size: 14px;
-            color: #777;
-            margin: 5px 0 0;
-        }
-
-        /* Show items when category is active */
-        .menu-category.active .menu-items {
-            max-height: 1000px; /* Adjust based on content height */
-            opacity: 1;
-        }
-
-        /* Pop-up animation for the active category */
-        .menu-category.active {
-            transform: translateY(-10px) translateZ(20px); /* Lift and pop-up effect */
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* Deeper shadow for active state */
-        }
-    </style>
+            <!--link to js-->
+            <script src="js_for_Menu.js"></script>    
 </head>
+
 <body>
-    <h1>𝑀𝑒𝓃𝓊</h1>
 
-    <!-- Drinks Section -->
-    <div class="menu-category" onclick="toggleCategory(this)">
-        <h2>Drinks</h2>
-        <div class="menu-items">
-            <div class="menu-item">
-                <h3>Sparkling Water</h3>
-                <p>Refreshing sparkling water with a hint of natural minerals.</p>
-                <button class="add-to-cart" onclick="addToCart('Sparkling Water', 2.99)">Add to Cart</button>
-            </div>
-            <div class="menu-item">
-                <h3>Lemon Soda</h3>
-                <p>Zesty lemon-flavored sparkling soda.</p>
-                <button class="add-to-cart" onclick="addToCart('Lemon Soda', 3.49)">Add to Cart</button>
-            </div>
-            <div class="menu-item">
-                <h3>Cola</h3>
-                <p>Classic cola drink with a refreshing taste.</p>
-                <button class="add-to-cart" onclick="addToCart('Cola', 2.99)">Add to Cart</button>
-            </div>
-            <!-- Add more drink items here -->
+    <!---intro--->
+    <div  class="intro-overlay" id="introOverlay">
+        <div class="restaurant-name">𝑀𝑒𝓃𝓊</div>
+        <a> Enjoy the taste</a>
+    </div>
+    <div class="clock-wipe" id="clockWipe"></div>
+
+
+        <!--nav-list-->
+        <ul class="navbar">
+        <a href="faqe_kryesore.html">Faqe Kryesore</a>
+        <a href="menu.html">Menu</a>
+        <a href="delivery.html">Delivery</a>
+        <a href="rezervime.html">Rezervime</a>
+        <a href="cart.html">Cart</a>
+        <a href="reviews.html">Reviews</a>
+        </ul>
+
+    <!--<a href="cart.html" class="btn">Cart<i class=" "></i></a>-->
+
+
+    <!--<div class="category">
+        <h1>𝑀𝑒𝓃𝓊</h1>
+    </div>-->
+
+    <div class="category" id="pijeSection">
+        <h2>𝒫𝒾𝒿𝑒</h2>
+    </div>
+    
+<!--product content-->
+<div class="products-container">
+
+    <!--uje dhe pije freskuese-->
+
+    <!--box 1-->
+<div class="box">
+<img src="img/uje.png" alt="">
+<span>Uje</span>
+<h2>Acqua Panna<br></h2>
+<h3 class="price">1$</h3>
+    <i class="bx bx-plus" onclick="addToCart('Acqua Panna', 3)"></i>
+<span class="discount"></span>
+</div>
+
+<!--box 2-->
+<div class="box">
+<img src="img/glina.png" alt="">
+<span>Uje i Gazuar</span>
+<h2>Glina<br></h2>
+<h3 class="price">1$</h3>
+<i class="bx bx-plus" onclick="addToCart('Glina', 3)"></i>
+<span class="discount"></span>
+</div>
+
+<!-- Box 3 -->
+<div class="box">
+    <img src="img/cola.png" alt="">
+    <span>Pije Freskuese</span>
+    <h2>Coca Cola</h2>
+    <h3 class="price">2$</h3>
+    
+    <i class="bx bx-plus" onclick="addToCart('Coca Cola', 3)"></i>
+
+    <span class="discount"></span>
+</div>
+
+
+<!--box 4-->
+<div class="box">
+<img src="img/fantaex.png" alt="">
+<span>Pije Freskuese</span>
+<h2>Fanta Egzotike</h2>
+<h3 class="price">2$</h3>
+<i class="bx bx-plus" onclick="addToCart('Fanta Egzotike', 3)"></i>
+<span class="discount"></span>
+</div>
+
+<!--box 5-->
+<div class="box">
+<img src="img/fantaor.png" alt="">
+<span>Pije Freskuese</span>
+<h2>Fanta Portokalli<br></h2>
+<h3 class="price">2$</h3>
+<i class="bx bx-plus" onclick="addToCart('Fanta Portokalli', 3)"></i>
+<span class="discount"></span>
+</div>
+
+<!--box 6-->
+<div class="box">
+<img src="img/pepsi.png" alt="">
+<span>Pije Freskuese</span>
+<h2>Pepsi<br></h2>
+<h3 class="price">2$</h3>
+<i class="bx bx-plus" onclick="addToCart('Pepsi', 3)"></i>
+<span class="discount"></span>
+</div>
+
+<!--Alkoolike-->
+
+    <!--box 7-->
+    <div class="box">
+        <img src="img/korca.png" alt="">
+        <span>Pije Alkoolike</span>
+        <h2>Korca<br></h2>
+        <h3 class="price">1$</h3>
+        <i class="bx bx-plus" onclick="addToCart('Korca', 3)"></i>
+        <span class="discount"></span>
         </div>
+        
+        <!--box 8-->
+        <div class="box">
+        <img src="img/peja.png" alt="">
+        <span>Pije Alkoolike</span>
+        <h2>Peja<br></h2>
+        <h3 class="price">1$</h3>
+        <i class="bx bx-plus" onclick="addToCart('Peja', 3)"></i>
+        <span class="discount"></span>
+        </div>
+        
+        <!--box 9-->
+        <div class="box">
+        <img src="img/heineken.png" alt="">
+        <span>Pije Alkoolike</span>
+        <h2>Heineken<br></h2>
+        <h3 class="price">2$</h3>
+        <i class="bx bx-plus" onclick="addToCart('Heineken', 3)"></i>
+        <span class="discount"></span>
+        </div>
+        
+        <!--box 10-->
+        <div class="box">
+        <img src="img/amstel.png" alt="">
+        <span>Pije Alkoolike</span>
+        <h2>Amstel</h2>
+        <h3 class="price">2$</h3>
+        <i class="bx bx-plus" onclick="addToCart('Amstel', 3)"></i>
+        <span class="discount"></span>
+        </div>
+        
+        <!--box 11-->
+        <div class="box">
+        <img src="img/paulaner.png" alt="">
+        <span>Pije Alkoolike</span>
+        <h2>Paulaner<br></h2>
+        <h3 class="price">2$</h3>
+        <i class="bx bx-plus" onclick="addToCart('Paulaner', 3)"></i>
+        <span class="discount"></span>
+        </div>
+        
+        <!--box 12-->
+        <div class="box">
+        <img src="img/bavaria.png" alt="">
+        <span>Pije Alkoolike</span>
+        <h2>Bavaria<br></h2>
+        <h3 class="price">2$</h3>
+        <i class="bx bx-plus" onclick="addToCart('Bavaria', 3)"></i>
+        
+        <span class="discount"></span>
+        </div>
+
+
+    <!---vere-->
+
+        <!--box 13-->
+        <div class="box">
+            <img src="img/vereb2.png" alt="">
+            <span>Vere e Bardhe</span>
+            <h2>Pecorino<br></h2>
+            <h3 class="price">50$</h3>
+            <i class="bx bx-plus" onclick="addToCart('Pecorino', 3)"></i>
+            
+            <span class="discount"></span>
+            </div>
+            
+            <!--box 14-->
+            <div class="box">
+            <img src="img/vereb1.png" alt="">
+            <span>Vere e Bardhe</span>
+            <h2>Lumina</h2>
+            <h3 class="price">45$</h3>
+            <i class="bx bx-plus" onclick="addToCart('Lumina', 3)"></i>
+        
+            <span class="discount"></span>
+            </div>
+
+            <!--box 15-->
+        <div class="box">
+            <img src="img/verek2.png" alt="">
+            <span>Vere e Kuqe</span>
+            <h2>Vranac<br></h2>
+            <h3 class="price">2$</h3>
+            <i class="bx bx-plus" onclick="addToCart('Vranac', 3)"></i>
+            
+            <span class="discount"></span>
+            </div>
+            
+            <!--box 16-->
+            <div class="box">
+            <img src="img/verek1.png" alt="">
+            <span>Vere e Kuqe</span>
+            <h2>Sideral</h2>
+            <h3 class="price">2$</h3>
+            <i class="bx bx-plus" onclick="addToCart('Sideral', 3)"></i>
+            
+            <span class="discount"></span>
+            </div>
+            
+            <!--box 17-->
+            <div class="box">
+            <img src="img/proseco.png" alt="">
+            <span>Shampanje</span>
+            <h2>Proseco<br></h2>
+            <h3 class="price">60$</h3>
+            <i class="bx bx-plus" onclick="addToCart('Proseco', 3)"></i>
+        
+            <span class="discount"></span>
+            </div>
+            
+            <!--box 18-->
+            <div class="box">
+            <img src="img/cinzano.png" alt="">
+            <span>Shampanje</span>
+            <h2>Cinzano<br></h2>
+            <h3 class="price">40$</h3>
+            <i class="bx bx-plus" onclick="addToCart('Cinzano', 3)"></i>
+    
+            <span class="discount"></span>
+            </div>
+
+
+    <!--box 19-->
+    <div class="box">
+        <img src="img/longisland.png" alt="">
+        <span>Cocktails</span>
+        <h2>Long Island<br></h2>
+        <h3 class="price">1$</h3>
+        <i class="bx bx-plus" onclick="addToCart('Long Island', 3)"></i>
+    
+        <span class="discount"></span>
+        </div>
+        
+        <!--box 20-->
+        <div class="box">
+        <img src="img/cubalibre.png" alt="">
+        <span>Cocktails</span>
+        <h2>Cuba Libre<br></h2>
+        <h3 class="price">1$</h3>
+        <i class="bx bx-plus" onclick="addToCart('Cuba Libre', 3)"></i>
+    
+        <span class="discount"></span>
+        </div>
+        
+        <!--box 21-->
+        <div class="box">
+        <img src="img/snb.png" alt="">
+        <span>Cocktails</span>
+        <h2>Sex On The Beach<br></h2>
+        <h3 class="price">2$</h3>
+        <i class="bx bx-plus" onclick="addToCart('Sex On The Beach', 3)"></i>
+        
+        <span class="discount"></span>
+        </div>
+        
+        <!--box 22-->
+        <div class="box">
+        <img src="img/margaritaa.png" alt="">
+        <span>Cocktails</span>
+        <h2>Margarita</h2>
+        <h3 class="price">2$</h3>
+        <i class="bx bx-plus" onclick="addToCart('Margarita', 3)"></i>
+        
+        <span class="discount"></span>
+        </div>
+        
+        <!--box 23-->
+        <div class="box">
+        <img src="img/mojito.png" alt="">
+        <span>Cocktails</span>
+        <h2>Mojito<br></h2>
+        <h3 class="price">2$</h3>
+        <i class="bx bx-plus" onclick="addToCart('Mojito', 3)"></i>
+        
+        <span class="discount"></span>
+        </div>
+
+        <!--box 24-->
+        <div class="box">
+        <img src="img/aperol.png" alt="">
+        <span>Cocktails</span>
+        <h2>Aperol Spritz<br></h2>
+        <h3 class="price">2$</h3>
+        <i class="bx bx-plus" onclick="addToCart('Aperol Spritz', 3)"></i>
+    
+        <span class="discount"></span>
+        </div>
+
+</section>
+
+<div class="category" id="akulloreSection">
+    <h2>𝒜𝓀𝓊𝓁𝓁𝑜𝓇𝑒</h2>
+</div>
+
+<!--product content-->
+<div class="products-container">
+
+    <!--box 1-->
+<div class="box">
+<img src="img/mango.png" alt="">
+<span>Akullore</span>
+<h2>Mango<br></h2>
+<h3 class="price">4$</h3>
+<i class="bx bx-plus" onclick="addToCart('Mango', 3)"></i>
+    
+<span class="discount"></span>
+</div>
+
+<!--box 2-->
+<div class="box">
+<img src="img/kivi.png" alt="">
+<span>Akullore</span>
+<h2>Kiwi<br></h2>
+<h3 class="price">6$</h3>
+<i class="bx bx-plus" onclick="addToCart('Kiwi', 3)"></i>
+    
+<span class="discount"></span>
+</div>
+
+<!--box 3-->
+<div class="box">
+<img src="img/fruta.png" alt="">
+<span>Akullore</span>
+<h2>Fruta Pylli<br></h2>
+<h3 class="price">7$</h3>
+<i class="bx bx-plus" onclick="addToCart('Fruta Pylli', 3)"></i>
+    
+<span class="discount"></span>
+</div>
+
+<!--box 4-->
+<div class="box">
+<img src="img/pistachio.png" alt="">
+<span>Akullore</span>
+<h2>Pistachio</h2>
+<h3 class="price">3$</h3>
+<i class="bx bx-plus" onclick="addToCart('Pistachio', 3)"></i>
+    
+<span class="discount"></span>
+</div>
+
+<!--box 5-->
+<div class="box">
+<img src="img/coko.png" alt="">
+<span>Akullore</span>
+<h2>Cokollate<br></h2>
+<h3 class="price">6$</h3>
+<i class="bx bx-plus" onclick="addToCart('Cokollate', 3)"></i>
+
+<span class="discount"></span>
+</div>
+
+<!--box 6-->
+<div class="box">
+<img src="img/qershi.png" alt="">
+<span>Akullore</span>
+<h2>Qershi<br></h2>
+<h3 class="price">3$</h3>
+<i class="bx bx-plus" onclick="addToCart('Qershi', 3)"></i>
+<span class="discount"></span>
+</div>
+
+
+<!--box 7-->
+<div class="box">
+    <img src="img/kos.png" alt="">
+    <span>Akullore</span>
+    <h2>Yogurt<br></h2>
+    <h3 class="price">3$</h3>
+    <i class="bx bx-plus" onclick="addToCart('Yogurt', 3)"></i>
+    <span class="discount"></span>
     </div>
 
-    <!-- Ice Creams Section -->
-    <div class="menu-category" onclick="toggleCategory(this)">
-        <h2>Ice Creams</h2>
-        <div class="menu-items">
-            <div class="menu-item">
-                <h3>Vanilla</h3>
-                <p>Classic vanilla ice cream made with real vanilla beans.</p>
-                <button class="add-to-cart" onclick="addToCart('Vanilla Ice Cream', 4.99)">Add to Cart</button>
-            </div>
-            <div class="menu-item">
-                <h3>Chocolate</h3>
-                <p>Rich and creamy chocolate ice cream made with premium cocoa.</p>
-                <button class="add-to-cart" onclick="addToCart('Chocolate Ice Cream', 5.49)">Add to Cart</button>
-            </div>
-            <div class="menu-item">
-                <h3>Strawberry</h3>
-                <p>Fresh strawberry ice cream with real fruit chunks.</p>
-                <button class="add-to-cart" onclick="addToCart('Strawberry Ice Cream', 5.49)">Add to Cart</button>
-            </div>
-            <!-- Add more ice cream items here -->
-        </div>
+
+<!--box 8-->
+<div class="box">
+    <img src="img/blueberry.png" alt="">
+    <span>Akullore</span>
+    <h2>Boronice<br></h2>
+    <h3 class="price">3$</h3>
+    <i class="bx bx-plus" onclick="addToCart('Boronice', 3)"></i>
+    <span class="discount"></span>
     </div>
 
-    <!-- Crepes Section -->
-    <div class="menu-category" onclick="toggleCategory(this)">
-        <h2>Crepes</h2>
-        <div class="menu-items">
-            <div class="menu-item">
-                <h3>Classic Crepe</h3>
-                <p>Butter, sugar, and a hint of lemon.</p>
-                <button class="add-to-cart" onclick="addToCart('Classic Crepe', 6.99)">Add to Cart</button>
-            </div>
-            <div class="menu-item">
-                <h3>Nutella Crepe</h3>
-                <p>Rich Nutella spread, sliced bananas, and whipped cream.</p>
-                <button class="add-to-cart" onclick="addToCart('Nut ella Crepe', 7.49)">Add to Cart</button>
-            </div>
-            <div class="menu-item">
-                <h3>Strawberry Crepe</h3>
-                <p>Fresh strawberries, strawberry syrup, and powdered sugar.</p>
-                <button class="add-to-cart" onclick="addToCart('Strawberry Crepe', 7.49)">Add to Cart</button>
-            </div>
-            <!-- Add more crepe items here -->
-        </div>
+
+<!--box 9-->
+<div class="box">
+    <img src="img/strw.png" alt="">
+    <span>Akullore</span>
+    <h2>Luleshtrydhe<br></h2>
+    <h3 class="price">3$</h3>
+    <i class="bx bx-plus" onclick="addToCart('Luleshtrydhe', 3)"></i>
+    <span class="discount"></span>
     </div>
 
-    <!-- Waffles Section -->
-    <div class="menu-category" onclick="toggleCategory(this)">
-        <h2>Waffles</h2>
-        <div class="menu-items">
-            <div class="menu-item">
-                <h3>Waffle 1</h3>
-                <p>Ingredients.</p>
-                <button class="add-to-cart" onclick="addToCart('Waffle 1', 5.99)">Add to Cart</button>
-            </div>
-            <div class="menu-item">
-                <h3>Waffle 2</h3>
-                <p>Ingredients.</p>
-                <button class="add-to-cart" onclick="addToCart('Waffle 2', 5.99)">Add to Cart</button>
-            </div>
-            <div class="menu-item">
-                <h3>Waffle 3</h3>
-                <p>Ingredients.</p>
-                <button class="add-to-cart" onclick="addToCart('Waffle 3', 5.99)">Add to Cart</button>
-            </div>
-            <!-- Add more waffle items here -->
-        </div>
+
+<!--box 10-->
+<div class="box">
+    <img src="img/karamel.png" alt="">
+    <span>Akullore</span>
+    <h2>Karamel<br></h2>
+    <h3 class="price">3$</h3>
+    <i class="bx bx-plus" onclick="addToCart('Karamel', 3)"></i>
+    <span class="discount"></span>
     </div>
 
-    <!-- Sandwich Section -->
-    <div class="menu-category" onclick="toggleCategory(this)">
-        <h2>Sandwiches</h2>
-        <div class="menu-items">
-            <div class="menu-item">
-                <h3>Sandwich 1</h3>
-                <p>Ingredients.</p>
-                <button class="add-to-cart" onclick="addToCart('Sandwich 1', 4.99)">Add to Cart</button>
-            </div>
-            <div class="menu-item">
-                <h3>Sandwich 2</h3>
-                <p>Ingredients.</p>
-                <button class="add-to-cart" onclick="addToCart('Sandwich 2', 4.99)">Add to Cart</button>
-            </div>
-            <div class="menu-item">
-                <h3>Sandwich 3</h3>
-                <p>Ingredients.</p>
-                <button class="add-to-cart" onclick="addToCart('Sandwich 3', 4.99)">Add to Cart</button>
-            </div>
-            <!-- Add more sandwich items here -->
-        </div>
+
+<!--box 11-->
+<div class="box">
+    <img src="img/megusta.png" alt="">
+    <span>Akullore</span>
+    <h2>Me Gusta<br></h2>
+    <h3 class="price">3$</h3>
+    <i class="bx bx-plus" onclick="addToCart('Me Gusta', 3)"></i>
+    <span class="discount"></span>
     </div>
 
-    <!-- Pizza Section -->
-    <div class="menu-category" onclick="toggleCategory(this)">
-        <h2>Pizza</h2>
-        <div class="menu-items">
-            <div class="menu-item">
-                <h3>Margherita</h3>
-                <p>Tomato sauce, fresh mozzarella, and basil.</p>
-                <button class="add-to-cart" onclick="addToCart('Margherita Pizza', 8.99)">Add to Cart</button>
-            </div>
-            <div class="menu-item">
-                <h3>Pepperoni</h3>
-                <p>Tomato sauce, mozzarella, and spicy pepperoni.</p>
-                <button class="add-to-cart" onclick="addToCart('Pepperoni Pizza', 9.49)">Add to Cart</button>
-            </div>
-            <div class="menu-item">
-                <h3>Hawaiian</h3>
-                <p>Tomato sauce, mozzarella, ham, and pineapple.</p>
-                <button class="add-to-cart" onclick="addToCart('Hawaiian Pizza', 9.49)">Add to Cart</button>
-            </div>
-            <!-- Add more pizza items here -->
-        </div>
+    
+<!--box 12-->
+<div class="box">
+    <img src="img/portokall.png" alt="">
+    <span>Akullore</span>
+    <h2>Portokall<br></h2>
+    <h3 class="price">3$</h3>
+    <i class="bx bx-plus" onclick="addToCart('Portokall', 3)"></i>
+    <span class="discount"></span>
     </div>
 
-    <script>
-        function toggleCategory(category) {
-            category.classList.toggle('active');
-        }
 
-        function addToCart(itemName, itemPrice) {
-            let cart = JSON.parse(localStorage.getItem('cart')) || [];
-            cart.push({ name: itemName, price: itemPrice });
-            localStorage.setItem('cart', JSON.stringify(cart));
-            alert(itemName + ' has been added to your cart!');
-        }
-    </script>
+</section>
+
+
+<div class="category" id="krepaSection">
+    <h2>𝒦𝓇𝑒𝓅𝒶</h2>
+</div>
+
+<!--product content-->
+<div class="products-container">
+
+    <!--box 1-->
+<div class="box">
+    <img src="img/crepe_pistachio.png" alt="">
+    <span>Krepa</span>
+    <h2>Pistachio<br></h2>
+    <h3 class="price">4$</h3>
+    <i class="bx bx-plus" onclick="addToCart('Pistachio', 3)"></i>
+    
+    <span class="discount"></span>
+    </div>
+    
+    <!--box 2-->
+    <div class="box">
+    <img src="img/luleshtrydhe.png" alt="">
+    <span>Krepa</span>
+    <h2>Luleshtrydhe<br></h2>
+    <h3 class="price">5$</h3>
+    <i class="bx bx-plus" onclick="addToCart('Luleshtrydhe', 3)"></i>
+    <span class="discount"></span>
+    </div>
+
+
+    <!--box 3-->
+    <div class="box">
+    <img src="img/mjeder_krep.png" alt="">
+    <span>Krepa</span>
+    <h2>Mjeder<br></h2>
+    <h3 class="price">7$</h3>
+    <i class="bx bx-plus" onclick="addToCart('Mjeder', 3)"></i>
+    <span class="discount"></span>
+    </div>
+
+
+    <!--box 4-->
+    <div class="box">
+    <img src="img/pana_krep.png" alt="">
+    <span>Krepa</span>
+    <h2>Pana & Banana</h2>
+    <h3 class="price">3$</h3>
+    <i class="bx bx-plus" onclick="addToCart('Pana & Banana', 3)"></i>
+    
+    <span class="discount"></span>
+    </div>
+    
+    <!--box 5-->
+    <div class="box">
+    <img src="img/cokobanane.png" alt="">
+    <span>Krepa</span>
+    <h2>Coko & Banana<br></h2>
+    <h3 class="price">6$</h3>
+    <i class="bx bx-plus" onclick="addToCart('Coko & Banana', 3)"></i>
+    
+    <span class="discount"></span>
+    </div>
+    
+    
+    <!--box 6-->
+    <div class="box">
+        <img src="img/mjeder.png" alt="">
+        <span>Krepa</span>
+        <h2>Manaferra<br></h2>
+        <h3 class="price">4$</h3>
+        <i class="bx bx-plus" onclick="addToCart('Manaferra', 3)"></i>
+        <span class="discount"></span>
+        </div>
+    
+
+    <!--box 7-->
+    <div class="box">
+        <img src="img/boronic_krep.png" alt="">
+        <span>Krepa</span>
+        <h2>Boronice<br></h2>
+        <h3 class="price">3$</h3>
+        <i class="bx bx-plus" onclick="addToCart('Boronice', 3)"></i>
+        <span class="discount"></span>
+        </div>
+    
+    
+        
+    <!--box 8-->
+    <div class="box">
+        <img src="img/pistachio_luleshtrydhe.png" alt="">
+        <span>Krepa</span>
+        <h2>Fruta Pylli<br></h2>
+        <h3 class="price">3$</h3>
+        <i class="bx bx-plus" onclick="addToCart('Fruta Pylli', 3)"></i>
+        <span class="discount"></span>
+        </div>
+
+
+    <!--box 9-->
+    <div class="box">
+        <img src="img/lemon_krep.png" alt="">
+        <span>Krepa</span>
+        <h2>Lemon<br></h2>
+        <h3 class="price">3$</h3>
+        <i class="bx bx-plus" onclick="addToCart('Lemon', 3)"></i>
+        <span class="discount"></span>
+        </div>
+
+
+    <!--box 10-->
+    <div class="box">
+        <img src="img/spicy_krep.png" alt="">
+        <span>Krepa</span>
+        <h2>Spicy<br></h2>
+        <h3 class="price">3$</h3>
+        <i class="bx bx-plus" onclick="addToCart('Spicy', 3)"></i>
+        <span class="discount"></span>
+        </div>
+
+
+        <!--box 11-->
+    <div class="box">
+        <img src="img/krep_portokalle.png" alt="">
+        <span>Waffle</span>
+        <h2>Portokall<br></h2>
+        <h3 class="price">3$</h3>
+        <i class="bx bx-plus" onclick="addToCart('Portokall', 3)"></i>
+        <span class="discount"></span>
+        </div>
+    
+    
+    <!--box 12-->
+    <div class="box">
+        <img src="img/waffle_frytapylli.png" alt="">
+        <span>Waffle</span>
+        <h2>Fruta Pylli<br></h2>
+        <h3 class="price">3$</h3>
+        <i class="bx bx-plus" onclick="addToCart('Fruta Pylli', 3)"></i>
+        <span class="discount"></span>
+        </div>
+    
+        
+    <!--box 13-->
+    <div class="box">
+        <img src="img/waffle_mjeder.png" alt="">
+        <span>Waffle</span>
+        <h2>Mjeder<br></h2>
+        <h3 class="price">3$</h3>
+        <i class="bx bx-plus" onclick="addToCart('Mjeder', 3)"></i>
+        <span class="discount"></span>
+        </div>
+    
+    
+    <!--box 14-->
+    <div class="box">
+        <img src="img/veze_proshute.png" alt="">
+        <span>Waffle</span>
+        <h2>Veze Proshute<br></h2>
+        <h3 class="price">3$</h3>
+        <i class="bx bx-plus" onclick="addToCart('Veze Proshute', 3)"></i>
+        <span class="discount"></span>
+        </div>
+
+
+    <!--box 15-->
+    <div class="box">
+    <img src="img/waffle_choko_luleshtrydhe.png" alt="">
+    <span>Waffle</span>
+    <h2>Cokollate-Luleshtrydhe<br></h2>
+    <h3 class="price">3$</h3>
+    <i class="bx bx-plus" onclick="addToCart('Cokollate-Luleshtrydhe', 3)"></i>
+    <span class="discount"></span>
+    </div>
+
+
+    <!--box 16-->
+    <div class="box">
+        <img src="img/veze_avokado.png" alt="">
+        <span>Waffle</span>
+        <h2>Veze-Avokado<br></h2>
+        <h3 class="price">3$</h3>
+        <i class="bx bx-plus" onclick="addToCart('Veze-Avokado', 3)"></i>
+        <span class="discount"></span>
+        </div>
+
+    
+    <!--box 17-->
+    <div class="box">
+        <img src="img/petulla_qershi.png" alt="">
+        <span>Waffle</span>
+        <h2>Petulla Qershi<br></h2>
+        <h3 class="price">3$</h3>
+        <i class="bx bx-plus" onclick="addToCart('Petulla Qershi', 3)"></i>
+        <span class="discount"></span>
+        </div>
+
+
+    <!--box 18-->
+    <div class="box">
+        <img src="img/petulla_mjalte.png" alt="">
+        <span>Waffle</span>
+        <h2>Petulla Mjalte<br></h2>
+        <h3 class="price">3$</h3>
+        <i class="bx bx-plus" onclick="addToCart('Petulla Mjalte', 3)"></i>
+        <span class="discount"></span>
+        </div>
+
+
+</section>
+
+
+<div class="category" id="picaSection">
+    <h2>𝒫𝒾𝒸𝒶</h2>
+</div>
+
+<!--product content-->
+<div class="products-container">
+
+ <!--box 1-->
+ <div class="box">
+    <img src="img/tomatina.png" alt="">
+    <span>Pizza</span>
+    <h2>Tomatina<br></h2>
+    <h3 class="price">4$</h3>
+    <i class="bx bx-plus" onclick="addToCart('Tomatina', 4)"></i>
+    <span class="discount"></span>
+    </div>
+
+
+    <!--box 2-->
+    <div class="box">
+    <img src="img/kerpudha.png" alt="">
+    <span>Pizza</span>
+    <h2>Kerpudha<br></h2>
+    <h3 class="price">6$</h3>
+    <i class="bx bx-plus" onclick="addToCart('Kerpudha', 6)"></i>
+    <span class="discount"></span>
+    </div>
+    
+    <!--box 3-->
+    <div class="box">
+    <img src="img/diavolo.png" alt="">
+    <span>Pizza</span>
+    <h2>Diavolo<br></h2>
+    <h3 class="price">7$</h3>
+    <i class="bx bx-plus" onclick="addToCart('Diavolo', 7)"></i>
+    <span class="discount"></span>
+    </div>
+    
+    <!--box 4-->
+    <div class="box">
+    <img src="img/margarita.png" alt="">
+    <span>Pizza</span>
+    <h2>Margarita</h2>
+    <h3 class="price">3$</h3>
+    <i class="bx bx-plus" onclick="addToCart('Margarita', 3)"></i>
+    <span class="discount"></span>
+    </div>
+    
+    <!--box 5-->
+    <div class="box">
+    <img src="img/caperi.png" alt="">
+    <span>Pizza</span>
+    <h2>Caperi<br></h2>
+    <h3 class="price">6$</h3>
+    <i class="bx bx-plus" onclick="addToCart('Caperi', 6)"></i>
+    <span class="discount"></span>
+    </div>
+    
+    <!--box 6-->
+    <div class="box">
+    <img src="img/calcone.png" alt="">
+    <span>Pizza</span>
+    <h2>Calcone<br></h2>
+    <h3 class="price">3$</h3>
+    <i class="bx bx-plus" onclick="addToCart('Calcone', 3)"></i>
+    <span class="discount"></span>
+    </div>
+
+
+    <!--box 7-->
+    <div class="box">
+        <img src="img/frutadeti.png" alt="">
+        <span>Pizza</span>
+        <h2>Fruta Deti<br></h2>
+        <h3 class="price">3$</h3>
+        <i class="bx bx-plus" onclick="addToCart('Fruta Deti', 3)"></i>
+        <span class="discount"></span>
+        </div>
+
+
+    <!--box 8-->
+    <div class="box">
+        <img src="img/bacon.png" alt="">
+        <span>Pizza</span>
+        <h2>Bacon<br></h2>
+        <h3 class="price">3$</h3>
+        <i class="bx bx-plus" onclick="addToCart('Bacon', 3)"></i>
+        <span class="discount"></span>
+        </div>
+
+
+    <!--box 9-->
+    <div class="box">
+        <img src="img/4djathrat2.png" alt="">
+        <span>Pizza</span>
+        <h2>4 Djathrat<br></h2>
+        <h3 class="price">3$</h3>
+        <i class="bx bx-plus" onclick="addToCart('4 Djathrat', 3)"></i>
+        <span class="discount"></span>
+        </div>
+
+
+    <!--box 10-->
+    <div class="box">
+        <img src="img/4stinet.png" alt="">
+        <span>Pizza</span>
+        <h2>4 Stinet<br></h2>
+        <h3 class="price">3$</h3>
+        <i class="bx bx-plus" onclick="addToCart('4 Stinet', 3)"></i>
+        <span class="discount"></span>
+        </div>
+    
+    
+    <!--box 11-->
+    <div class="box">
+        <img src="img/mesdhetare.png" alt="">
+        <span>Pizza</span>
+        <h2>Mesdhetare<br></h2>
+        <h3 class="price">3$</h3>
+        <i class="bx bx-plus" onclick="addToCart('Mesdhetare', 3)"></i>
+        <span class="discount"></span>
+        </div>
+    
+        
+    <!--box 12-->
+    <div class="box">
+        <img src="img/tono.png" alt="">
+        <span>Pizza</span>
+        <h2>Tono<br></h2>
+        <h3 class="price">3$</h3>
+        <i class="bx bx-plus" onclick="addToCart('Tono', 3)"></i>
+        <span class="discount"></span>
+        </div>
+    
+
+</section>
+
+
+<div class="category" id="burgerSection">
+    <h2>𝐵𝓊𝓇𝑔𝑒𝓇𝓈</h2>
+</div>
+
+<!--product content-->
+<div class="products-container">
+
+<!--box 1-->
+<div class="box">
+    <img src="img/hamburger.png" alt="">
+    <span>Burger</span>
+    <h2>Hamburger<br></h2>
+    <h3 class="price">4$</h3>
+    <i class="bx bx-plus" onclick="addToCart('Hamburger', 4)"></i>
+    <span class="discount"></span>
+    </div>
+    
+    <!--box 2-->
+    <div class="box">
+    <img src="img/turkey_burger.png" alt="">
+    <span>Burger</span>
+    <h2>Turkey Burger<br></h2>
+    <h3 class="price">6$</h3>
+    <i class="bx bx-plus" onclick="addToCart('Turkey Burger', 6)"></i>
+    <span class="discount"></span>
+    </div>
+    
+    <!--box 3-->
+    <div class="box">
+    <img src="img/portobello_burger.png" alt="">
+    <span>Burger</span>
+    <h2>Portobello Burger<br></h2>
+    <h3 class="price">7$</h3>
+    <i class="bx bx-plus" onclick="addToCart('Portobello Burger', 7)"></i>
+    <span class="discount"></span>
+    </div>
+    
+    <!--box 4-->
+    <div class="box">
+    <img src="img/elk_burger.png" alt="">
+    <span>Burger</span>
+    <h2>Elk Burger</h2>
+    <h3 class="price">3$</h3>
+    <i class="bx bx-plus" onclick="addToCart('Elk Burger', 3)"></i>
+    <span class="discount"></span>
+    </div>
+    
+    <!--box 5-->
+    <div class="box">
+    <img src="img/cheese_burger.png" alt="">
+    <span>Burger</span>
+    <h2>Cheese Burger<br></h2>
+    <h3 class="price">6$</h3>
+    <i class="bx bx-plus" onclick="addToCart('Cheese Burger', 6)"></i>
+    <span class="discount"></span>
+    </div>
+    
+    <!--box 6-->
+    <div class="box">
+    <img src="img/bean_burger.png" alt="">
+    <span>Burger</span>
+    <h2>Bean Burger<br></h2>
+    <h3 class="price">3$</h3>
+    <i class="bx bx-plus" onclick="addToCart('Bean Burger', 3)"></i>
+    <span class="discount"></span>
+    </div>
+
+
+    <!--box 7-->
+    <div class="box">
+        <img src="img/chips.png" alt="">
+        <span>Chips</span>
+        <h2>Patate<br></h2>
+        <h3 class="price">3$</h3>
+        <i class="bx bx-plus" onclick="addToCart('Patate', 3)"></i>
+        <span class="discount"></span>
+        </div>
+
+
+    <!--box 8-->
+    <div class="box">
+        <img src="img/clubsandwich.png" alt="">
+        <span>Sandwich</span>
+        <h2>Club Sandwich<br></h2>
+        <h3 class="price">3$</h3>
+        <i class="bx bx-plus" onclick="addToCart('Club Sandwich', 3)"></i>
+        <span class="discount"></span>
+        </div>
+
+
+    <!--box 9-->
+    <div class="box">
+        <img src="img/blt_sandwich.png" alt="">
+        <span>Sandwich</span>
+        <h2>BLT<br></h2>
+        <h3 class="price">3$</h3>
+        <i class="bx bx-plus" onclick="addToCart('BLT', 3)"></i>
+        <span class="discount"></span>
+        </div>
+
+
+    <!--box 10-->
+    <div class="box">
+        <img src="img/tuna_sandwich.png" alt="">
+        <span>Sandwich</span>
+        <h2>Tuna Sandwich<br></h2>
+        <h3 class="price">3$</h3>
+        <i class="bx bx-plus" onclick="addToCart('Tuna Sandwich', 3)"></i>
+        <span class="discount"></span>
+        </div>
+
+
+    <!--box 11-->
+    <div class="box">
+        <img src="img/vegie_sandwich.png" alt="">
+        <span>Sandwich</span>
+        <h2>Vegie Sandwich<br></h2>
+        <h3 class="price">3$</h3>
+        <i class="bx bx-plus" onclick="addToCart('Vegie Sandwich', 3)"></i>
+        <span class="discount"></span>
+        </div>
+
+
+
+    <!--box 12-->
+    <div class="box">
+        <img src="img/bacon_sandwich.png" alt="">
+        <span>Sandwich</span>
+        <h2>Bacon Sandwich<br></h2>
+        <h3 class="price">3$</h3>
+        <i class="bx bx-plus" onclick="addToCart('Bacon Sandwich', 3)"></i>
+        <span class="discount"></span>
+        </div>
+
+</section>
 </body>
-</ html>
+</html>

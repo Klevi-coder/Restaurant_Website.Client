@@ -1,0 +1,245 @@
+
+
+
+            body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #70161e;
+            position: relative;
+            }
+
+
+            /* Pseudo-element for the blurred background */
+            body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('img/backgr13.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: 100vh; /* Ensures the background covers the full viewport height */
+            filter: blur(3px); /* Adjust the blur intensity */
+            z-index: -1; /* Places the background behind the content */
+            }
+
+
+
+
+            .navbar {
+                position: fixed;
+                top: 0;
+                width: 100%; /* Ensures it spans the full width */
+                background-color: #fff3d3; /* Set a background color to avoid transparency */
+                z-index: 1000; /* Ensures it stays above other content */
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Adds a shadow for better visibility */
+                display: flex; /* Aligns items in a row */
+                justify-content: space-around; /* Distributes space evenly */
+                padding: 5px 0; /* Adds padding for better spacing */
+                margin: 0; /* Removes any default margin */
+            }
+
+
+            .navbar a {
+                color: #000000;
+                position: relative;                /* Pozitivi për të menaxhuar stilin */
+                font-size: 1.2rem;
+                font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                font-weight: 600;
+                padding: 6px 6px;               /* Padding për butonët */
+                text-decoration: none;             /* Hiq linjën e nënvizimit */
+                border-radius: 5rem;              /* Rrethimi i këndëve */
+                transition: background 0.5s, box-shadow 0.5s; /* Kalimi i ngjyrës së sfondit dhe hijes */
+                background-color: transparent;     /* Sfondi fillestar */
+            }
+
+
+            .navbar a:hover {
+                  color: #ffffff;            /* Ngjyra e tekstit kur hover */
+                  background-color: #5e1313;             /* Ngjyra e sfondit kur hover */
+                }
+
+
+            body {
+                  margin: 0; /* Removes default body margin */
+                  padding-top: 0px; /* Adjust this value based on the height of your navbar */
+                }
+
+
+                
+                .container {
+                    line-height: 3;
+                    width: 500px;
+                    height: 300px;
+                    margin: auto;
+                    padding: 20px;
+                    background: rgba(255, 251, 251, 0);
+                    border-radius: 12px;
+                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                    animation: slideIn 0.5s ease-out;
+                    overflow-y: scroll;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 8px;
+                    box-sizing: border-box;
+                }
+                
+
+
+                                /* Custom scrollbar styles */
+                                ::-webkit-scrollbar {
+                                    width: 0; /* Hides the scrollbar */
+                                    }
+                    
+                    
+                                    ::-webkit-scrollbar-thumb {
+                                    background: transparent; /* Makes the scrollbar thumb transparent */
+                                    }
+
+                                    @keyframes slideIn {
+                                        from {
+                                        opacity: 0;
+                                        transform: translateY(-20px);
+                                        }to {
+                                        opacity: 1;
+                                        transform: translateY(5);
+                                        }}
+
+
+                @media (max-width: 768px) {
+                    form {
+                        padding: 20px;
+                    }
+                
+                    h1 {
+                        font-size: 1.5rem;
+                    }
+                
+                    label {
+                        font-size: 1.1rem;
+                    }
+                }
+
+
+                p {
+                    text-align: center;
+                    position: absolute;
+                    line-height: 5;
+                    width: 100%;
+                    top: 70px;
+                    font-size: 2.5rem;
+                    margin-bottom: 10px;
+                    color: #70161e;
+                    animation: slideIn 0.7s ease-out;
+                    z-index: 10;
+                }
+
+
+            input, select, button {
+            text-align: center;
+            font-weight: 600;
+            font-size: 1rem;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            width: 100%; 
+            padding: 10px; 
+            margin-bottom: 15px;
+            border: 2px solid #ffffff;
+            border-radius: 5px; 
+            box-sizing: border-box;
+            font-size: 1rem;
+            }
+
+
+            #rezervimiForm{
+                text-align: center;
+                font-size: 1rem;
+                font-weight: 600;
+                font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            }
+
+
+            #labelNumriPersonave{
+                line-height: 2;
+                font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                font-size: 1.2rem;
+                font-weight: 600;
+            }
+
+
+            #labelVakt{
+                line-height: 2;
+                font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                font-size: 1.2rem;
+                font-weight: 600;
+            }
+
+
+            #labelOra{
+                line-height: 2;
+                font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                font-size: 1.2rem;
+                font-weight: 600;
+            }
+
+
+            #labelZona{
+                line-height: 2;
+                font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                font-size: 1.2rem;
+                font-weight: 600;
+            }
+
+
+            .zona {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start; /* Qendro etiketat dhe opsionet në të majtë */
+            margin-bottom: 15px;
+            }
+
+
+            .zona label {
+            margin: 5px 0;
+            }
+
+
+            /* Për butonin */
+            button {
+            background: linear-gradient(135deg, #70161e,#ff0000dd);
+            color: rgb(255, 255, 255);
+            border: none;
+            cursor: pointer;
+            padding: 10px 15px; 
+            font-size: 16px;
+            border-radius: 5px;
+            transition: background 0.3s ease, transform 0.3s ease;
+            }
+
+
+            button:hover {
+            background: linear-gradient(135deg, #ff0000db, #70161e);
+            transform: translateY(-2px);
+            }
+
+
+            button:active {
+            transform: translateY(0);
+            }
+
+
+            /* Për mesazhet */
+            #mesazhi {
+            margin-top: 20px;
+            font-weight: bold;
+            color: #ff0000bb;
+            text-align: center; /* Qendro mesazhet në qendër */
+            }
+

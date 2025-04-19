@@ -1,0 +1,835 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Crepes & Icecreams</title>
+
+    <!--css styles for main page-->
+    <link rel="stylesheet" href="css_for_Main_Page.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" defer></script>
+
+    <!---Box-icons=--->
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+</head>
+
+<style>
+    
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+*,
+*::before,
+*::after {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+list-style-type: none;
+text-decoration: none;
+}
+
+:root {
+--primary: #ec994b;
+--white: #ffffff;
+--bg: #f5f5f5;
+}
+
+    .container .h1{
+    text-align: center;
+    line-height: 1;
+    }             
+                    
+
+html {
+font-size: 40%;
+font-family: "Montserrat", sans-serif;
+scroll-behavior: smooth;
+}
+
+@media (min-width: 1600px) {
+html {
+    zoom: 1.5;
+}
+}
+
+@media (min-width: 2560px) {
+html {
+zoom: 1.7;
+}
+}
+
+@media (min-width: 4000px) {
+html {
+    zoom: 1.5;
+}
+}
+
+::-webkit-scrollbar {
+width: 1.3rem;
+}
+
+::-webkit-scrollbar-thumb {
+border-radius: 1rem;
+background: #797979;
+transition: all 0.5s ease-in-out;
+}
+
+::-webkit-scrollbar-thumb:hover {
+background: #222224;
+}
+
+::-webkit-scrollbar-track {
+background: #f9f9f9;
+}
+
+body {
+font-size: 1.6rem;
+background: var(--bg);
+}
+
+.container {
+max-width: 200rem;
+padding: 0 1rem;
+margin: 0 auto;
+}
+
+.text-center {
+text-align: center;
+}
+
+.section-heading {
+font-size: 3rem;
+color: var(--primary);
+padding: 2rem 0;
+}
+
+#tranding {
+padding: 4rem 0;
+}
+
+@media (max-width:1440px) {
+#tranding {
+padding: 7rem 0;
+}
+}
+
+#tranding .tranding-slider {
+height: 52rem;
+padding: 2rem 0;
+position: relative;
+}
+
+@media (max-width:500px) {
+#tranding .tranding-slider {
+    height: 45rem;
+}
+}
+
+.tranding-slide {
+width: 37rem;
+height: 42rem;
+position: relative;
+}
+
+@media (max-width:500px) {
+.tranding-slide {
+    width: 28rem !important;
+    height: 36rem !important;
+}
+.tranding-slide .tranding-slide-img img {
+    width: 28rem !important;
+    height: 36rem !important;
+}
+}
+
+.tranding-slide .tranding-slide-img img {
+width: 37rem;
+height: 42rem;
+border-radius: 2rem;
+object-fit: cover;
+}
+
+.tranding-slide .tranding-slide-content {
+position: absolute;
+left: 0;
+top: 0;
+right: 0;
+bottom: 0;
+}
+
+.tranding-slide-content .food-price {
+    font-size: 3rem;
+position: absolute;
+top: 2rem;
+right: 2rem;
+color: var(--white);
+}
+
+.tranding-slide-content .tranding-slide-content-bottom {
+position: absolute;
+bottom: 2rem;
+left: 2rem;
+color: var(--white);
+}
+
+.food-rating {
+padding-top: 1rem;
+display: flex;
+gap: 1rem;
+}
+
+.rating ion-icon {
+color: var(--primary);
+}
+
+.swiper-slide-shadow-left,
+.swiper-slide-shadow-right {
+display: none;
+}
+
+.tranding-slider-control {
+position: relative;
+bottom: 2rem;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.tranding-slider-control .swiper-button-next {
+left: 58% !important;
+transform: translateX(-58%) !important;
+}
+
+@media (max-width:990px) {
+.tranding-slider-control .swiper-button-next {
+    left: 70% !important;
+    transform: translateX(-70%) !important;
+}
+}
+
+@media (max-width:450px) {
+.tranding-slider-control .swiper-button-next {
+    left: 80% !important;
+    transform: translateX(-80%) !important;
+}
+}
+
+@media (max-width:990px) {
+.tranding-slider-control .swiper-button-prev {
+    left: 30% !important;
+    transform: translateX(-30%) !important;
+}
+}
+
+@media (max-width:450px) {
+.tranding-slider-control .swiper-button-prev {
+    left: 20% !important;
+    transform: translateX(-20%) !important;
+}
+}
+
+.tranding-slider-control .slider-arrow {
+background: var(--white);
+width: 3.5rem;
+height: 3.5rem;
+border-radius: 50%;
+left: 42%;
+transform: translateX(-42%);
+filter: drop-shadow(0px 8px 24px rgba(18, 28, 53, 0.1));
+}
+
+.tranding-slider-control .slider-arrow ion-icon {
+font-size: 2rem;
+color: #222224;
+}
+
+.tranding-slider-control .slider-arrow::after {
+content: '';
+}
+
+.tranding-slider-control .swiper-pagination {
+position: relative;
+width: 15rem;
+bottom: 1rem;
+}
+
+.tranding-slider-control .swiper-pagination .swiper-pagination-bullet {
+filter: drop-shadow(0px 8px 24px rgba(18, 28, 53, 0.1));
+}
+
+.tranding-slider-control .swiper-pagination .swiper-pagination-bullet-active {
+background: var(--primary);
+}
+
+</style>
+
+
+<body>        <!---intro--->
+    <div class="intro-overlay" id="introOverlay">
+        <div class="restaurant-name">𝑀𝑒 𝒢𝓊𝓈𝓉𝒶</div>
+        <a> Developed by Jakup & Adisa</a>
+    </div>
+    <div class="clock-wipe" id="clockWipe"></div>
+
+
+
+    <!---navbar--->
+    <header>
+        <a href="#" class="logo"><i class="bx bx-restaurant"></i>𝑀𝑒 𝒢𝓊𝓈𝓉𝒶</a>
+    
+        <!--menu icon-->
+        <div class="bx bx-menu" id="menu-icon"></div>
+    
+        <!--nav-list-->
+<ul class="navbar">
+    <a href="#tranding" class="home-active">Kreu</a>
+    <a href="#categories">Menu</a>
+    <a href="#products">Oferta</a>
+    <a href="#about">Rreth Nesh</a>
+    <a href="#reviews">Reviews</a>
+    </ul>
+
+<div class="profile">
+<img src="img/une.jpeg" alt="">
+<span>
+    <a href="https://github.com/itsjakup" target="_blank">Jakup Ymeraj</a>
+</span>
+<img src="img/adisa.jpg" alt="">
+<span>
+    <a href="https://github.com/Adisa13" target="_blank">Adisa Hoxhaj</a>
+</span>
+</div>     
+    <a href="cart.html" class="cart"><i class="bx bx-cart-alt"></i></a>
+</header>
+
+
+
+<section>
+    <div class="container">
+        <h3 class="text-center section-subheading"></h3>
+    </div>
+</section>
+
+
+    <section id="tranding">
+        
+<div class="container">
+    <h3 class="text-center section-subheading"></h3>
+    <h1 class="text-center section-heading"></h1>
+</div>
+
+        
+<div class="container">
+    <h3 class="text-center section-subheading">~Tasty~</h3>
+    <h1 class="text-center section-heading">Most Wanted</h1>
+</div>
+
+    <div class="container">
+        <div class="swiper tranding-slider">
+        <div class="swiper-wrapper">
+            <!-- Slide-start -->
+            <div class="swiper-slide tranding-slide">
+            <div class="tranding-slide-img">
+                <img src="img/trending_food1.jpg" alt="Tranding">
+            </div>
+            <div class="tranding-slide-content">
+                <h1 class="food-price">$6</h1>
+                <div class="tranding-slide-content-bottom">
+                <h2 class="food-name">
+                    Special Burger
+                </h2>
+                <h3 class="food-rating">
+                    <span>4.5</span>
+                    <div class="rating">
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    </div>
+                </h3>
+                </div>
+            </div>
+            </div>
+            <!-- Slide-end -->
+
+            <!-- Slide-start -->
+            <div class="swiper-slide tranding-slide">
+                <div class="tranding-slide-img">
+                    <img src="img/trending_food8.jpg" alt="Tranding">
+                </div>
+                <div class="tranding-slide-content">
+                    <h1 class="food-price">$0.7</h1>
+                    <div class="tranding-slide-content-bottom">
+                    <h2 class="food-name">
+                        Espresso
+                    </h2>
+                    <h3 class="food-rating">
+                        <span>4.5</span>
+                        <div class="rating">
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        </div>
+                    </h3>
+                    </div>
+                </div>
+                </div>
+                <!-- Slide-end -->
+            
+            <!-- Slide-start -->
+            <div class="swiper-slide tranding-slide">
+            <div class="tranding-slide-img">
+                <img src="img/trending_food2.jpg" alt="Tranding">
+            </div>
+            <div class="tranding-slide-content">
+                <h1 class="food-price">$7</h1>
+                <div class="tranding-slide-content-bottom">
+                <h2 class="food-name">
+                    Pizza Divolo
+                </h2>
+                <h3 class="food-rating">
+                    <span>4.5</span>
+                    <div class="rating">
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    </div>
+                </h3>
+                </div>
+            </div>
+            </div>
+            <!-- Slide-end -->
+            
+            <!-- Slide-start -->
+            <div class="swiper-slide tranding-slide">
+            <div class="tranding-slide-img">
+                <img src="img/trending_food2_1.jpg" alt="Tranding">
+            </div>
+            <div class="tranding-slide-content">
+                <h1 class="food-price">$4</h1>
+                <div class="tranding-slide-content-bottom">
+                <h2 class="food-name">
+                Fruta Pylli
+                </h2>
+                <h3 class="food-rating">
+                    <span>4.5</span>
+                    <div class="rating">
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    </div>
+                </h3>
+                </div>
+            </div>
+            </div>
+            <!-- Slide-end -->
+            <!-- Slide-start -->
+            <div class="swiper-slide tranding-slide">
+            <div class="tranding-slide-img">
+                <img src="img/trending_food4.jpg" alt="Tranding">
+            </div>
+            <div class="tranding-slide-content">
+                <h1 class="food-price">$3</h1>
+                <div class="tranding-slide-content-bottom">
+                <h2 class="food-name">
+                    Mango Icecream
+                </h2>
+                <h3 class="food-rating">
+                    <span>4.5</span>
+                    <div class="rating">
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    </div>
+                </h3>
+                </div>
+            </div>
+            </div>
+            <!-- Slide-end -->
+            <!-- Slide-start -->
+            <div class="swiper-slide tranding-slide">
+            <div class="tranding-slide-img">
+                <img src="img/trending_food5_2.jpg" alt="Tranding">
+            </div>
+            <div class="tranding-slide-content">
+                <h1 class="food-price">$8</h1>
+                <div class="tranding-slide-content-bottom">
+                <h2 class="food-name">
+                    Aperol spritz
+                </h2>
+                <h3 class="food-rating">
+                    <span>4.5</span>
+                    <div class="rating">
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    </div>
+                </h3>
+                </div>
+            </div>
+            </div>
+            <!-- Slide-end -->
+            <!-- Slide-start -->
+            <div class="swiper-slide tranding-slide">
+            <div class="tranding-slide-img">
+                <img src="img/trending_food6_2.jpg" alt="Tranding">
+            </div>
+            <div class="tranding-slide-content">
+                <h1 class="food-price">$50</h1>
+                <div class="tranding-slide-content-bottom">
+                <h2 class="food-name">Prossecco</h2>
+                <h3 class="food-rating">
+                    <span>4.7</span>
+                    <div class="rating">
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    </div>
+                </h3>
+                </div>
+            </div>
+            </div>
+            <!-- Slide-end -->
+            <!-- Slide-start -->
+            <div class="swiper-slide tranding-slide">
+            <div class="tranding-slide-img">
+                <img src="img/trending_food7.jpg" alt="Tranding">
+            </div>
+            <div class="tranding-slide-content">
+                <h1 class="food-price">$3</h1>
+                <div class="tranding-slide-content-bottom">
+                <h2 class="food-name">
+                    Straw Waffle
+                </h2>
+                <h3 class="food-rating">
+                    <span>4.5</span>
+                    <div class="rating">
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    </div>
+                </h3>
+                </div>
+            </div>
+            </div>
+            <!-- Slide-end -->
+            </div>
+
+        </div>
+    </div>
+    </section>
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
+
+
+
+    <section class="categories" id="categories">
+        <div class="heading">
+            <h1>𝗦𝗵𝗳𝗹𝗲𝘁𝗼<br> <span>𝑀𝑒𝓃𝓊𝓃𝑒 𝑒 𝒫𝑒𝓇𝓏𝑔𝒿𝑒𝒹𝒽𝓊𝓇</span></h1>
+        
+            <!--menu button -->
+            <a href="menu.html" class="btn">Te gjitha<i class="bx bx-right-arrow-alt"></i></a>
+        </div>
+
+    <!--container content-->
+<div class="categories-container">
+
+<!--box 1-->
+<button class="box box4" onclick="location.href='menu.html#pijeSection'">
+    <img src="img/drinks.png" alt="">
+    <a>Pije</a>
+</button>
+
+<!--box 2-->
+<button class="box box2" onclick="location.href='menu.html#akulloreSection'">
+    <img src="img/superakullore.png" alt="">
+    <a>Akullore</a>
+</button>
+
+<!--box 3-->
+<button class="box box1" onclick="location.href='menu.html#krepaSection'">
+    <img src="img/superkrepi.png" alt="">
+    <a>Krepa</a>
+</button>
+
+<!--box 4-->
+<button class="box box3" onclick="location.href='menu.html#picaSection'">
+    <img src="img/pica.png" alt="">
+    <a>Pizza</a>
+</button>
+
+<!--box 5-->
+<button class="box box5" onclick="location.href='menu.html#burgerSection'">
+    <img src="img/burger.png" alt="">
+    <a>Burgers</a>
+</button>
+</div>
+
+
+    <!--ofertat ditore-->
+    <section class="products" id="products">
+
+        <div class="heading">
+            <h1>𝐎𝐟𝐞𝐫𝐭𝐚𝐭<br> <span>𝐃𝐢𝐭𝐨𝐫𝐞</span></h1>
+            <a href="delivery.html" class="btn">Porosit Tani<i class="bx bx-right-arrow-alt"></i></a>
+        </div>
+
+        <!--product content-->
+        <div class="products-container">
+    
+        <!--box 1-->
+<div class="box">
+    <img src="img/krepluleshtrydhe.png" alt="">
+    <span>Krepa</span>
+    <h2>Luleshtrydhe & Cokollate<br></h2>
+    <h3 class="price">4$</h3>
+    <i class="bx bx-cart-alt" onclick="addToCart('Luleshtrydhe & Cokollate', 4)"></i>
+    <i class="bx bxs-heart" style="color: crimson;" onclick="addToFavorites('Luleshtrydhe & Cokollate', 4)"></i>
+</button>
+    <span class="discount">-20%</span>
+</div>
+
+<!--box 2-->
+<div class="box">
+    <img src="img/clubsandwich.png" alt="">
+    <span>Sandwich</span>
+    <h2>Club Sandwich<br></h2>
+    <h3 class="price">6$</h3>
+    <i class="bx bx-cart-alt" onclick="addToCart('Club Sandwich', 6)"></i>
+    <i class="bx bxs-heart" style="color: crimson;" onclick="addToFavorites('Club Sandwich', 6)"></i>
+</button>
+    <span class="discount">-25%</span>
+</div>
+
+<!--box 3-->
+<div class="box">
+    <img src="img/spicypica.png" alt="">
+    <span>Pizza</span>
+    <h2>Caperi<br></h2>
+    <h3 class="price">7$</h3>
+    <i class="bx bx-cart-alt" onclick="addToCart('Caperi', 7)"></i>
+    <i class="bx bxs-heart" style="color: crimson;" onclick="addToFavorites('Caperi', 3)"></i>
+</button>
+    <span class="discount">-15%</span>
+</div>
+
+<!--box 4-->
+<div class="box">
+    <img src="img/mangoakullore.png" alt="">
+    <span>Akullore</span>
+    <h2>Mango</h2>
+    <h3 class="price">3$</h3>
+    <i class="bx bx-cart-alt" onclick="addToCart('Mango', 3)"></i>
+    <i class="bx bxs-heart" style="color: crimson;" onclick="addToFavorites('Mango', 3)"></i>
+</button>
+    <span class="discount">-25%</span>
+</div>
+
+<!--box 5-->
+<div class="box">
+    <img src="img/waffle_frutamix.png" alt="">
+    <span>Waffles</span>
+    <h2>Belgian Waffle<br></h2>
+    <h3 class="price">6$</h3>
+    <i class="bx bx-cart-alt" onclick="addToCart('Belgian Waffle', 6)"></i>
+    <i class="bx bxs-heart" style="color: crimson;" onclick="addToFavorites('Belgian Waffle', 6)"></i>
+</button>
+    <span class="discount">-25%</span>
+</div>
+
+<!--box 6-->
+<div class="box">
+    <img src="img/petulla.png" alt="">
+    <span>Pancakes</span>
+    <h2>Cinnamon Pancakes<br></h2>
+    <h3 class="price">3$</h3>
+    <i class="bx bx-cart-alt" onclick="addToCart('Cinnamon Pancakes', 3)"></i>
+        <i class="bx bxs-heart" style="color: crimson;" onclick="addToFavorites('Cinnamon Pancakes', 3)"></i>
+    </button>
+    <span class="discount">-25%</span>
+</div>
+
+    </section>
+
+
+        <!--about-->
+    <section>
+        <h1><span>𝓡𝓻𝓮𝓽𝓱 𝓷𝓮𝓼𝓱</span></h1>
+    </section>
+
+    <section class="about" id="about"></section>
+        <p>𝐐ë 𝐧𝐠𝐚 𝐯𝐢𝐭𝐢 𝟐𝟎𝟎𝟐, 𝐫𝐞𝐬𝐭𝐨𝐫𝐚𝐧𝐭𝐢 𝐲𝐧ë 𝐤𝐚 𝐪𝐞𝐧ë 𝐧𝐣ë 𝐝𝐞𝐬𝐭𝐢𝐧𝐚𝐜𝐢𝐨𝐧 𝐢 𝐝𝐚𝐬𝐡𝐮𝐫 𝐩ë𝐫 𝐚𝐭𝐚 𝐪ë 𝐤ë𝐫𝐤𝐨𝐣𝐧ë 𝐧𝐣ë 𝐩ë𝐫𝐯𝐨𝐣ë 𝐮𝐧𝐢𝐤𝐞 𝐤𝐮𝐥𝐢𝐧𝐚𝐫𝐞.
+    𝐌𝐞 𝐧𝐣ë 𝐩ë𝐫𝐤𝐮𝐬𝐡𝐭𝐢𝐦 𝐭ë 𝐩𝐚𝐥ë𝐤𝐮𝐧𝐝𝐮𝐫 𝐧𝐝𝐚𝐣 𝐜𝐢𝐥ë𝐬𝐢𝐬ë 𝐝𝐡𝐞 𝐬𝐡𝐢𝐣𝐞𝐬, 𝐧𝐞 𝐤𝐞𝐦𝐢 𝐧𝐝ë𝐫𝐭𝐮𝐚𝐫 𝐧𝐣ë 𝐭𝐫𝐚𝐝𝐢𝐭ë 𝐪ë 𝐤𝐨𝐦𝐛𝐢𝐧𝐨𝐧 𝐫𝐞𝐜𝐞𝐭𝐚𝐭 𝐚𝐮𝐭𝐞𝐧𝐭𝐢𝐤𝐞 𝐦𝐞 𝐩ë𝐫𝐛ë𝐫ë𝐬𝐢𝐭 𝐦ë 𝐭ë 𝐟𝐫𝐞𝐬𝐤ë𝐭 𝐭ë 𝐬𝐞𝐳𝐨𝐧𝐢𝐭.
+𝐀𝐭𝐦𝐨𝐬𝐟𝐞𝐫𝐚 𝐣𝐨𝐧ë 𝐦𝐢𝐤𝐩𝐫𝐢𝐭ë𝐬𝐞 𝐝𝐡𝐞 𝐬𝐡ë𝐫𝐛𝐢𝐦𝐢 𝐢 𝐩ë𝐫𝐤𝐮𝐬𝐡𝐭𝐮𝐚𝐫 𝐞 𝐛ë𝐣𝐧ë ç𝐝𝐨 𝐯𝐢𝐳𝐢𝐭ë 𝐧𝐣ë 𝐤𝐮𝐣𝐭𝐢𝐦 𝐭ë 𝐩𝐚𝐡𝐚𝐫𝐫𝐮𝐞𝐬𝐡ë𝐦. 
+𝐍ë 𝐦𝐞𝐧𝐮𝐧ë 𝐭𝐨𝐧ë, 𝐝𝐨 𝐭ë 𝐠𝐣𝐞𝐧𝐢 𝐧𝐣ë 𝐠𝐚𝐦ë 𝐭ë 𝐠𝐣𝐞𝐫ë 𝐩𝐣𝐚𝐭𝐚𝐬𝐡 𝐭ë 𝐤𝐫𝐢𝐣𝐮𝐚𝐫𝐚 𝐦𝐞 𝐝𝐚𝐬𝐡𝐮𝐫𝐢 𝐝𝐡𝐞 𝐤𝐫𝐞𝐚𝐭𝐢𝐯𝐢𝐭𝐞𝐭, 𝐪ë 𝐩𝐚𝐬𝐪𝐲𝐫𝐨𝐣𝐧ë 𝐤𝐮𝐥𝐭𝐮𝐫ë𝐧 𝐝𝐡𝐞 𝐩𝐚𝐬𝐢𝐨𝐧𝐢𝐧 𝐭𝐨𝐧ë 𝐩ë𝐫 𝐮𝐬𝐡𝐪𝐢𝐦𝐢𝐧.  
+𝐉𝐞𝐦𝐢 𝐤𝐫𝐞𝐧𝐚𝐫ë 𝐪ë 𝐩𝐫𝐞𝐣 𝐦ë 𝐬𝐡𝐮𝐦ë 𝐬𝐞 𝐝𝐲 𝐝𝐞𝐤𝐚𝐝𝐚𝐬𝐡 𝐤𝐞𝐦𝐢 𝐬𝐡ë𝐫𝐛𝐲𝐞𝐫 𝐤𝐨𝐦𝐮𝐧𝐢𝐭𝐞𝐭𝐢𝐧 𝐭𝐨𝐧ë 𝐝𝐡𝐞 𝐦𝐢𝐪𝐭ë 𝐭𝐚𝐧ë 𝐧𝐝ë𝐫𝐤𝐨𝐦𝐛ë𝐭𝐚𝐫ë, 
+𝐝𝐮𝐤𝐞 𝐬𝐣𝐞𝐥𝐥ë 𝐛𝐮𝐳ë𝐪𝐞𝐬𝐡𝐣𝐞 𝐝𝐡𝐞 𝐤ë𝐧𝐚𝐪ë𝐬𝐢 𝐧ë 𝐭𝐫𝐲𝐞𝐳ë. 𝐉𝐮 𝐦𝐢𝐫ë𝐩𝐫𝐞𝐬𝐢𝐦 𝐭ë 𝐛ë𝐡𝐞𝐧𝐢 𝐩𝐣𝐞𝐬ë 𝐞 𝐡𝐢𝐬𝐭𝐨𝐫𝐢𝐬ë 𝐬𝐨𝐧ë 𝐝𝐡𝐞 𝐭ë 𝐬𝐡𝐢𝐣𝐨𝐧𝐢 𝐞𝐤𝐬𝐩𝐞𝐫𝐢𝐞𝐧𝐜ë𝐧 𝐮𝐧𝐢𝐤𝐞 𝐪ë 𝐨𝐟𝐫𝐨𝐧 𝐫𝐞𝐬𝐭𝐨𝐫𝐚𝐧𝐭𝐢 𝐲𝐧ë.
+    </p>
+    <h4><p>𝗘𝘀𝘁𝗮𝗯𝗹𝗶𝘀𝗵𝗲𝗱 𝟮𝟬𝟬𝟮</p></h4>
+    <div>~</div>
+        <h3>★★★★★</h3>
+    
+    <!--customers-->
+    <section>    
+        <h1>𝒫𝓈𝑒 𝒹𝓊𝒽𝑒𝓉 𝓉𝑒 𝓃𝒶 𝓏𝑔𝒿𝒾𝒹𝒽𝓃𝒾 𝓃𝑒?</h1>
+    </section>
+
+    <section>
+        <h3>𝒯𝑜𝓅 𝓇𝑒𝓋𝒾𝑒𝓌𝑒𝓇𝓈</h3>
+    </section>
+
+    <section class="reviews" id="reviews">
+        <div class="reviews-container">
+            <!--review 1-->
+            <a href="reviews.html" class="box">
+                <h3>𝒥𝒶𝓀𝓊𝓅 𝒴𝓂𝑒𝓇𝒶𝒿</h3>
+                <i class="bx bxs-quote-alt-left-right"></i>
+                <p>Cdo gje super, mezi pres te shkoj serish!</p>
+                
+                <div class="review-footer">
+                    <div class="stars">
+                        <i class="bx bxs-star"></i>
+                        <i class="bx bxs-star"></i>
+                        <i class="bx bxs-star"></i>
+                        <i class="bx bxs-star"></i>
+                        <i class="bx bxs-star"></i>
+                    </div>
+                    <div class="review-profile">
+                        <img src="img/emoji1.png" alt="">
+                    </div>
+                </div>
+            </a>
+            
+            <!--review 2-->
+            <a href="reviews.html" class="box">
+                <h3>𝒜𝒹𝒾𝓈𝒶 𝐻𝑜𝓍𝒽𝒶𝒿</h3>
+                <i class="bx bxs-quote-alt-left-right"></i>
+                <p>Cilesi dhe korrektesi!!</p>
+                
+                <div class="review-footer">
+                    <div class="stars">
+                        <i class="bx bxs-star"></i>
+                        <i class="bx bxs-star"></i>
+                        <i class="bx bxs-star"></i>
+                        <i class="bx bxs-star"></i>
+                        <i class="bx bxs-star"></i>
+                    </div>
+                    <div class="review-profile">
+                        <img src="img/emoji2.png" alt="">
+                    </div>
+                </div>
+            </a>
+            
+            <!--review 3-->
+            <a href="reviews.html" class="box">
+                <h3>𝒜𝓇𝒷𝑒𝓃 𝒴𝓂𝑒𝓇𝒶𝒿</h3>
+                <i class="bx bxs-quote-alt-left-right"></i>
+                <p>Ushqim dhe sherbim i shkelqyer!!</p>
+                
+                <div class="review-footer">
+                    <div class="stars">
+                        <i class="bx bxs-star"></i>
+                        <i class="bx bxs-star"></i>
+                        <i class="bx bxs-star"></i>
+                        <i class="bx bxs-star"></i>
+                        <i class="bx bxs-star"></i>
+                    </div>
+                    <div class="review-profile">
+                        <img src="img/emoji3.png" alt="">
+                    </div>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!--footer-->
+    <section class="footer" id="footer">
+        <div class="footer-box">
+            <a href="menu.html" class="logo"><i class="bx bx-restaurant"></i>𝑀𝑒 𝒢𝓊𝓈𝓉𝒶</a>
+            <p>Tirane, Albania <br>Rruga e Kavajes, nr. 12</p>
+            <div class="social">
+                <a href="https://www.facebook.com/jakupymeraj18/"><i class="bx bxl-facebook"></i></a>
+                <a href="https://www.instagram.com/its.jakup/"><i class="bx bxl-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/jakup-ymeraj-21b57525a/"><i class="bx bxl-linkedin"></i></a>
+                <a href="https://github.com/itsjakup"><i class="bx bxl-github"></i></a>
+                <a href="https://images.search.yahoo.com/search/images;_ylt=AwrFDPytkINnmbACFQWJzbkF;_ylu=c2xrA3RleHQEaXQDQWxzb1RyeV9OBHNlYwNyZWwEcG9zAzU-?p=Twitter+Clip+Art&fr2=p%3As%2Cv%3Ai%2Cm%3Ars-top%2Cct%3Abing%2Crgn%3Atop%2Cpos%3A5&fr=mcafee&type=E210US91215G0#id=3&iurl=http%3A%2F%2Fcliparts.co%2Fcliparts%2FyTk%2FABp%2FyTkABpdnc.png&action=click"><i class="bx bxl-twitter"></i></a>
+            </div>
+        </div>
+
+    <div class="footer-box">
+        <h2>Kategori</h2>
+        <a href="menu.html">Crepes, Pizza &amp; more</a>
+        <a href="menu.html">Drinks, Wine &amp; more</a>
+        <a href="delivery.html">Oferta Ditore</a>
+        <a href="rezervime.html">Rezervime</a>
+        <a href="delivery.html">Sherbime Delivery</a>
+    </div>
+
+    <div class="footer-box">
+        <h2>Links</h2>
+        <a href="card_payment.html">Payments</a>
+        <a href="#">Terms of Use</a>
+        <a href="#">Return Policy</a>
+    </div>
+
+    
+    <div class="footer-box">
+        <h2>Njoftime</h2>
+        <p>Perfitoni 25% ulje per cdo produkt ne porosine tuaj te pare!</p>
+        <h4>Hyr ose Regjistrohu</h4>
+        <br>
+
+        <a href="login_signup.html#login_container">
+            <h4>Log In / Sign Up</h4>
+        </a>
+    </div>
+
+
+<!-- Add link to Boxicons (for the icons to appear) -->
+<script src="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/dist/boxicons.js"></script>
+
+    </div>
+</section>
+
+            <!--copyright-->
+            <div class="copyright">
+                <p>𝑀𝑒 𝒢𝓊𝓈𝓉𝒶 2025. All rights reserved! © ®</p>
+            </div>
+
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+            <!--link to js-->
+            <script src="javascript_for_Main_Page.js"></script>
+
+    </body>
+
+</html>

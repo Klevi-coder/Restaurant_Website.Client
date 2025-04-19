@@ -1,321 +1,140 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Porosit tani</title>
+    <link rel="stylesheet" href="css_for_delivery.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
+        /* Modal styles */
+        .modal {
+            display: none; /* Initially hidden */
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 80%;
+            height: 80%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
         }
-        h1 {
-            color: #333;
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 10px;
+            border: 1px solid #888;
+            width: 80%; /* Could be more or less, depending on screen size */
         }
-        label {
-            display: block;
-            margin-top: 10px;
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
         }
-        input, textarea, select {
-            width: 100%;
-            padding: 8px;
-            margin-top: 5px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        button {
-            padding: 10px 20px;
-            background-color: #28a745;
-            color: white;
-            border: none;
-            border-radius: 4px;
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
             cursor: pointer;
         }
-        button:hover {
-            background-color: #218838;
-        }
-        .order-details {
-            margin-top: 20px;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            background-color: #f9f9f9;
-        }
-
-        input, textarea, select {
-    width: 100%;
-    padding: 12px;
-    margin-top: 8px;
-    margin-bottom: 16px;
-    border: 2px solid #ddd;
-    border-radius: 8px;
-    font-size: 16px;
-    transition: border-color 0.3s ease;
-}
-
-input:focus, textarea:focus, select:focus {
-    border-color: #007bff;
-    outline: none;
-    box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
-}
-
-button {
-    padding: 12px 24px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-button:hover {
-    background-color:rgb(3, 199, 10);
-    transform: translateY(-2px);
-}
-
-button:active {
-    transform: translateY(0);
-}
-
-.order-details {
-    margin-top: 20px;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 12px;
-    background-color: #fff;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.order-details h2 {
-    margin-top: 0;
-    color: #333;
-    font-size: 24px;
-    border-bottom: 2px solid #007bff;
-    padding-bottom: 10px;
-}
-
-.order-details p {
-    margin: 10px 0;
-    font-size: 16px;
-    color: #555;
-}
-
-.order-details p strong {
-    color: #333;
-} 
-
-input:hover, textarea:hover, select:hover {
-    border-color:rgb(255, 0, 0);
-}
-
-/*body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 20px;
-    background: linear-gradient(135deg,rgb(255, 255, 255), #c3cfe2);
-    min-height: 100vh;
-}*/
-
-/*body {
-    margin: 0;
-    padding: 0;
-    background-image: url('img/crepes_background.jpg'); /* Path to your image */
-    background-size: cover; /* Ensures the image covers the entire page */
-    background-position: center; /* Centers the image */
-    background-repeat: no-repeat; /* Prevents the image from repeating */
-    min-height: 100vh; /* Ensures the background covers the full viewport height */
-}*/
-
- /* Body with Blurred Background Image */
-        body {
-            margin: 0;
-            padding: 0;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-family: Arial, sans-serif;
-            color: white;
-            text-align: center;
-            position: relative; /* Required for the pseudo-element */
-        }
-
-        /* Pseudo-element for the blurred background */
-        body::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: url('img/crepes_background.jpg'); /* Path to your image */
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            min-height: 100vh; /* Ensures the background covers the full viewport height */
-            filter: blur(6px); /* Adjust the blur intensity */
-            z-index: -1; /* Places the background behind the content */
-        }
-
-        /* Content Styling */
-        h1 {
-            background-color: none; /*rgb(255, 255, 255);  Semi-transparent black background */
-            color: white;
-            padding: 20px;
-            border-radius: 10px;
-        }
-
-form {
-    width: 600px;
-    height: 400px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    animation: slideIn 0.5s ease-out;
-            overflow-y: auto; /* Adds scrollbar if content exceeds max-height */
-            display: flex;
-            flex-direction: column;
-            gap: 10px; /* Adds spacing between form elements */
-            box-sizing: border-box; /* Ensures padding is included in height */
-}
-
-             /* Form Elements */
-        input, textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-sizing: border-box; /* Ensures padding is included in height */
-        }
-
-        textarea {
-            resize: vertical; /* Allows vertical resizing */
-        }
-
-
-@keyframes slideIn {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.payment-method {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 16px;
-}
-
-.payment-method label {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    cursor: pointer;
-}
-
-.payment-method input[type="radio"] {
-    display: none;
-}
-
-.payment-method input[type="radio"] + span {
-    width: 20px;
-    height: 20px;
-    border: 2px solid rgba(60, 255, 0, 0.93);
-    border-radius: 50%;
-    display: inline-block;
-    position: relative;
-    transition: background-color 0.3s ease;
-}
-
-.payment-method input[type="radio"]:checked + span {
-    background-color:rgb(4, 228, 0);
-}
-
-.payment-method input[type="radio"]:checked + span::after {
-    content: '';
-    width: 10px;
-    height: 10px;
-    background-color: white;
-    border-radius: 50%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
     </style>
 </head>
 <body>
-    <h1>Porosit tani</h1>
-    <form id="orderForm">
 
-        <label for="customerName">Porositesi/ja:</label>
-        <input type="text" id="customerName" name="customerName" required>
+    <!-- Navigation -->
+    <ul class="navbar">
+        <a href="faqe_kryesore.html" class="home-active">Faqe Kryesore</a>
+        <a href="menu.html">Menu</a>
+        <a href="delivery.html">Delivery</a>
+        <a href="rezervime.html">Rezervime</a>
+        <a href="cart.html">Cart</a>
+        <a href="reviews.html">Reviews</a>
+    </ul>
 
-        <label for="product">Produkti:</label>
-        <input type="text" id="product" name="product" required>
+    <p>𝓟𝓸𝓻𝓸𝓼𝓲𝓣 𝓣𝓪𝓷𝓲</p>
 
-        <label for="quantity">Sasia:</label>
-        <input type="number" id="quantity" name="quantity" required>
+    <div class="form-container">
+        <form id="orderForm">
+            <label for="customerName">Porositesi/ja:</label>
+            <input type="text" id="customerName" name="customerName" required>
+    
+            <label for="product">Produkti:</label>
+            <input type="text" id="product" name="product" required>
+    
+            <label for="quantity">Sasia:</label>
+            <input type="text" id="quantity" name="quantity" required>
+    
+            <label for="adress">Adresa:</label>
+            <input type="text" id="adress" name="adress" required>
+    
+            <label for="paymentMethod">Metoda e Pageses:</label>
+            <select id="paymentMethod" name="paymentMethod" required>
+                <option value="cash">Cash</option>
+                <option value="card">Card</option>
+            </select>
+    
+            <button type="button" id="kryej_porosine">Kryej Porosine</button>
+        </form>
+    </div>
 
-        <label for="extraIngredients">Perberes shtese (cdo perberes shtese kushton 50 leke):</label>
-        <textarea id="extraIngredients" name="extraIngredients"></textarea>
-
-        <label for="address">Adresa:</label>
-        <textarea id="address" name="address" required></textarea>
-
-        <label for="paymentMethod">Metoda e Pageses:</label>
-        <select id="paymentMethod" name="paymentMethod" required>
-            <option value="cash">Cash</option>
-            <option value="card">Card</option>
-        </select>
-
-        <button type="submit">Kryej Porosine</button>
-    </form>
-
-    <div id="orderDetails" class="order-details" style="display: none;">
-        <h2>Order Details</h2>
-        <p><strong>Product:</strong> <span id="displayProduct"></span></p>
-        <p><strong>Customer Name:</strong> <span id="displayCustomerName"></span></p>
-        <p><strong>Quantity:</strong> <span id="displayQuantity"></span></p>
-        <p><strong>Extra Ingredients:</strong> <span id="displayExtraIngredients"></span></p>
-        <p><strong>Address:</strong> <span id="displayAddress"></span></p>
-        <p><strong>Payment Method:</strong> <span id="displayPaymentMethod"></span></p>
+    <!-- Modal for order confirmation -->
+    <div id="notification" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeModal">&times;</span>
+            <h2>Detajet e Porosise</h2>
+            <div id="notificationDetails"></div>
+        </div>
     </div>
 
     <script>
-        document.getElementById('orderForm').addEventListener('submit', function (event) {
+        document.getElementById('kryej_porosine').addEventListener('click', function(event) {
             event.preventDefault(); // Prevent form submission
 
             // Get form values
             const product = document.getElementById('product').value;
             const customerName = document.getElementById('customerName').value;
             const quantity = document.getElementById('quantity').value;
-            const extraIngredients = document.getElementById('extraIngredients').value;
-            const address = document.getElementById('address').value;
+            const address = document.getElementById('adress').value; // Fixed ID here
             const paymentMethod = document.getElementById('paymentMethod').value;
 
-            // Display the order details
-            document.getElementById('displayProduct').textContent = product;
-            document.getElementById('displayCustomerName').textContent = customerName;
-            document.getElementById('displayQuantity').textContent = quantity;
-            document.getElementById('displayExtraIngredients').textContent = extraIngredients || 'None';
-            document.getElementById('displayAddress').textContent = address;
-            document.getElementById('displayPaymentMethod').textContent = paymentMethod;
+            // Create the invoice details
+            const invoiceDetails = `
+                <p><strong>Produkti:</strong> ${product}</p>
+                <p><strong>Emri i Porositësit:</strong> ${customerName}</p>
+                <p><strong>Sasia:</strong> ${quantity}</p>
+                <p><strong>Adresa:</strong> ${address}</p>
+                <p><strong>Metoda e Pageses:</strong> ${paymentMethod}</p>
+            `;
 
-            // Show the order details section
-            document.getElementById('orderDetails').style.display = 'block';
+            // Display the invoice in the modal
+            document.getElementById('notificationDetails').innerHTML = invoiceDetails;
+
+            // Show the modal
+            document.getElementById('notification').style.display = 'block';
+
+            // If payment method is card, redirect to card.html after a short delay
+            if (paymentMethod === "card") {
+                setTimeout(() => {
+                    window.location.href = "card_payment.html"; // Redirect to card payment page
+                }, 5000); // Redirects after 5 seconds
+            }
         });
+
+        // Close the modal when the user clicks on <span> (x)
+        document.getElementById('closeModal').addEventListener('click', function() {
+            document.getElementById('notification').style.display = 'none';
+        });
+
+        // Close the modal when the user clicks anywhere outside of the modal
+        window.onclick = function(event) {
+            const modal = document.getElementById('notification');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        };
     </script>
 </body>
 </html>

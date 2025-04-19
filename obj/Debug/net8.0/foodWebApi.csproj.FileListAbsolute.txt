@@ -1,0 +1,7 @@
+C:\Users\Perdorues\Downloads\food_website_apk\obj\Debug\net8.0\foodWebApi.csproj.AssemblyReference.cache
+C:\Users\Perdorues\Downloads\food_website_apk\obj\Debug\net8.0\foodWebApi.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Perdorues\Downloads\food_website_apk\obj\Debug\net8.0\foodWebApi.AssemblyInfoInputs.cache
+C:\Users\Perdorues\Downloads\food_website_apk\obj\Debug\net8.0\foodWebApi.AssemblyInfo.cs
+C:\Users\Perdorues\Downloads\food_website_apk\obj\Debug\net8.0\foodWebApi.csproj.CoreCompileInputs.cache
+C:\Users\Perdorues\Downloads\food_website_apk\obj\Debug\net8.0\foodWebApi.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Perdorues\Downloads\food_website_apk\obj\Debug\net8.0\foodWebApi.MvcApplicationPartsAssemblyInfo.cache

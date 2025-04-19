@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reviews</title>
+
+    <link rel="stylesheet" href="css_for_reviews.css">
+    <script src="js_for_reviews.js" defer></script>
+
+</head>
+<body>
+
+    <!---intro--->
+    <div class="intro-overlay" id="introOverlay">
+        <div class="restaurant-name">𝑅𝑒𝓋𝒾𝑒𝓌𝓈</div>
+        <a>Positive Vibes Only</a>
+    </div>
+    <div class="clock-wipe" id="clockWipe"></div>
+
+    <!--nav-list-->
+    <ul class="navbar">
+        <a href="faqe_kryesore.html" class="home-active">Faqe Kryesore</a>
+        <a href="menu.html">Menu</a>
+        <a href="delivery.html">Delivery</a>
+        <a href="rezervime.html">Rezervime</a>
+        <a href="cart.html">Cart</a>
+        <a href="reviews.html">Reviews</a>
+    </ul>
+
+    <p>𝓡𝓮𝓿𝓲𝓮𝔀𝓼</p>
+
+    <div class="container">
+        <div class="review-list" id="reviewList">
+            <!-- Reviews will be populated here by JavaScript -->
+        </div>
+    </div>
+
+    <!-- Review actions -->
+    <div class="review-actions">
+        <button>Like</button>
+        <button>Dislike</button>
+        <button>Delete</button>
+    </div>
+    
+    <!-- Feedback modal -->
+    <div class="modal" id="feedbackModal">
+        <div class="modal-content">
+            <h3>Was this review helpful for you?</h3>
+            <div class="modal-buttons">
+                <button id="yesBtn">Po</button>
+                <button id="noBtn">Jo</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Notification -->
+    <div class="notification" id="notification"></div>
+    
+    <!-- Footer with review form - Fixed at bottom -->
+    <footer>
+        <div class="footer-content">
+            <form class="review-form" id="reviewForm">
+                <div class="form-group">
+                    <input type="text" id="name" placeholder="Emer Mbiemer" required>
+                </div>
+                
+                <div class="form-group">
+                    <textarea id="reviewText" placeholder="Shkruani review-ne tuaj (jo me shume se 5 rreshta)" rows="5" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <div class="star-rating" id="starRating">
+                        <span class="star" data-value="1">★</span>
+                        <span class="star" data-value="2">★</span>
+                        <span class="star" data-value="3">★</span>
+                        <span class="star" data-value="4">★</span>
+                        <span class="star" data-value="5">★</span>
+                    </div>
+                    <input type="hidden" id="rating" name="rating" value="0">
+                    <button type="submit">Submit Review</button>
+                </div>
+            </form>
+        </div>
+    </footer>
+
+</body>
+</html>

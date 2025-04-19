@@ -1,0 +1,172 @@
+
+
+
+                /* Background settings */
+                body {
+                margin: 0;
+                padding: 0;
+                height: 100vh;
+                background-image: url('img/backgr13.jpg');
+                background-size: cover;
+                background-position: center;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-family: Arial, sans-serif;
+                color: #70161e;
+                position: relative; /* Set the body to relative for absolute positioning */
+                }
+
+
+                /* Blurred overlay */
+                body::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: inherit;
+                filter: blur(3px);
+                z-index: -1;
+                }
+
+
+                .navbar {
+                position: fixed; /* Fixes the navbar at the top */
+                top: 0; /* Aligns it to the top of the page */
+                width: 100%; /* Ensures it spans the full width */
+                background-color: #fff3d3; /* Set a background color to avoid transparency */
+                z-index: 1000; /* Ensures it stays above other content */
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Adds a shadow for better visibility */
+                display: flex; /* Aligns items in a row */
+                justify-content: space-around; /* Distributes space evenly */
+                padding: 5px 0; /* Adds padding for better spacing */
+                margin: 0; /* Removes any default margin */
+                }
+
+
+                .navbar a {
+                color: #000000;
+                position: relative;                /* Pozitivi për të menaxhuar stilin */
+                font-size: 1.2rem;
+                font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                font-weight: 600;
+                padding: 6px 6px;               /* Padding për butonët */
+                text-decoration: none;             /* Hiq linjën e nënvizimit */
+                border-radius: 5rem;              /* Rrethimi i këndëve */
+                transition: background 0.5s, box-shadow 0.5s; /* Kalimi i ngjyrës së sfondit dhe hijes */
+                background-color: transparent;     /* Sfondi fillestar */
+                }
+                
+                .navbar a:hover {
+                    color: #ffffff;            /* Ngjyra e tekstit kur hover */
+                    background-color: #5e1313;             /* Ngjyra e sfondit kur hover */
+                }
+                
+                body {
+                    margin: 0; /* Removes default body margin */
+                    padding-top: 60px; /* Adjust this value based on the height of your navbar */
+                }
+
+
+                /* Cart container */
+                .cart-container {
+                background: rgba(255, 240, 240, 0.3);
+                padding: 25px;
+                border-radius: 10px;
+                width: 300px;
+                text-align: center;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+                animation: slideIn 0.7s ease-out;
+                }
+
+
+        
+                @keyframes slideIn {
+                from {
+                opacity: 0;
+                transform: translateY(-20px);
+                }to {
+                opacity: 1;
+                transform: translateY(5);
+                }}
+
+
+                /* Title */
+                .cart-container h1 {
+                font-size: 24px;
+                margin-bottom: 20px;
+                }
+
+
+                /* Cart items */
+                #cart-items {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                max-height: 200px;
+                overflow-y: scroll;
+                text-align: left;
+                }
+
+
+                /* Custom scrollbar styles */
+                ::-webkit-scrollbar {
+                width: 0; /* Hides the scrollbar */
+                }
+
+
+                ::-webkit-scrollbar-thumb {
+                background: transparent; /* Makes the scrollbar thumb transparent */
+                }
+
+
+                .cart-item {
+                display: flex;
+                justify-content: space-between;
+                padding: 10px;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+                }
+
+
+                .cart-item span {
+                font-size: 14px;
+                }
+
+
+                .remove-item {
+                color: #70161e;
+                cursor: pointer;
+                }
+
+
+                .remove-item:hover {
+                color: #ff0000;
+                }
+
+
+                /* Checkout button */
+                .checkout {
+                width: 100%;
+                padding: 10px;
+                background: linear-gradient(90deg, #70161e, #c13016);
+                border: none;
+                border-radius: 5px;
+                color: #fff;
+                font-size: 16px;
+                cursor: pointer;
+                margin-top: 20px;
+                }
+
+
+                .checkout:hover {
+                background: linear-gradient(90deg, #c02e14, #70161e);
+                }
+
+
+                /* Total amount */
+                .total {
+                margin-top: 10px;
+                font-size: 16px;
+                }
