@@ -26,9 +26,9 @@
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            min-height: 100vh; /* Ensures the background covers the full viewport height */
-            filter: blur(3px); /* Adjust the blur intensity */
-            z-index: -1; /* Places the background behind the content */
+            min-height: 100vh;
+            filter: blur(3px);
+            z-index: -1; 
             }
 
 
@@ -50,27 +50,27 @@
 
             .navbar a {
                 color: #000000;
-                position: relative;                /* Pozitivi për të menaxhuar stilin */
+                position: relative;                
                 font-size: 1.2rem;
                 font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
                 font-weight: 600;
-                padding: 6px 6px;               /* Padding për butonët */
-                text-decoration: none;             /* Hiq linjën e nënvizimit */
-                border-radius: 5rem;              /* Rrethimi i këndëve */
-                transition: background 0.5s, box-shadow 0.5s; /* Kalimi i ngjyrës së sfondit dhe hijes */
-                background-color: transparent;     /* Sfondi fillestar */
+                padding: 6px 6px;              
+                text-decoration: none;         
+                border-radius: 5rem;              
+                transition: background 0.5s, box-shadow 0.5s;
+                background-color: transparent;     
             }
 
 
             .navbar a:hover {
-                  color: #ffffff;            /* Ngjyra e tekstit kur hover */
-                  background-color: #5e1313;             /* Ngjyra e sfondit kur hover */
+                color: #ffffff;            
+                background-color: #5e1313;             
                 }
 
 
             body {
-                  margin: 0; /* Removes default body margin */
-                  padding-top: 0px; /* Adjust this value based on the height of your navbar */
+                margin: 0; 
+                padding-top: 0px; 
                 }
 
 
@@ -96,14 +96,13 @@
                 
 
 
-                                /* Custom scrollbar styles */
                                 ::-webkit-scrollbar {
-                                    width: 0; /* Hides the scrollbar */
+                                    width: 0; 
                                     }
                     
                     
                                     ::-webkit-scrollbar-thumb {
-                                    background: transparent; /* Makes the scrollbar thumb transparent */
+                                    background: transparent; 
                                     }
 
                                     @media (max-width: 768px) {
@@ -205,7 +204,7 @@
             .zona {
             display: flex;
             flex-direction: column;
-            align-items: flex-start; /* Qendro etiketat dhe opsionet në të majtë */
+            align-items: flex-start;
             margin-bottom: 15px;
             }
 
@@ -215,7 +214,6 @@
             }
 
 
-            /* Për butonin */
             button {
             background: linear-gradient(135deg, #70161e,#ff0000dd);
             color: rgb(255, 255, 255);
@@ -239,11 +237,11 @@
             }
 
 
-            /* Për mesazhet */
+            /*for the message */
             #mesazhi {
             margin-top: 20px;
             font-weight: bold;
             color: #ff0000bb;
-            text-align: center; /* Qendro mesazhet në qendër */
+            text-align: center; 
             }
 
