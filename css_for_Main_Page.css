@@ -394,6 +394,16 @@
 }
 
 
+.heading p {
+    font-size: 4rem;
+}
+
+.heading h1 span {
+    font-size: 4rem;
+    font-weight: 600;
+}
+
+
 .categories{
     max-width: 968px;
     margin-left: auto;
@@ -794,8 +804,21 @@ height: 30px;
 }
 
 .footer-box p {
+    text-align: left;
 font-size: 2rem;
 margin: 0.5rem 0 1rem;
+}
+
+.footer-box h2{
+    text-align: left;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: 600;
+}
+
+.footer-box h4{
+    text-align: left;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: 600;
 }
 
 .social{
@@ -989,10 +1012,10 @@ grid-template-columns: repeat(auto-fit, minmax(20rem, auto));
     }
 
     .about h3 {
-    text-align: left; /* Aligns text to the left */
-    margin: 0; /* Removes default margin */
-    padding: 0; /* Removes default padding */
-    width: 100%; /* Ensures the h3 takes full width of its container */
+    text-align: left;
+    margin: 0; 
+    padding: 0; 
+    width: 100%; 
 }
 
     .btn{

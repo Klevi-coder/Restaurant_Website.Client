@@ -163,7 +163,7 @@ form {
                 font-size: 2.5rem;
                 margin-bottom: 10px;
                 color: #70161e;
-                animation: slideIn 0.7s ease-out;
+                animation: slideIn 0.5s ease-out;
                 z-index: 10;
             }
 
