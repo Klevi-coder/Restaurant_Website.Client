@@ -1,72 +1,50 @@
-
-
-
-
 document.addEventListener('DOMContentLoaded', function() {
-    // Elements
-const introOverlay = document.getElementById('introOverlay');
+    const introOverlay = document.getElementById('introOverlay');
     const clockWipe = document.getElementById('clockWipe');
     const mainContent = document.getElementById('mainContent');
     
-    // Start animation sequence after a short delay
     setTimeout(function() {
-        // Make clock wipe visible
         clockWipe.style.opacity = '0';
         
-        // Animate clock wipe
         setTimeout(function() {
             clockWipe.style.transform = 'rotate(90deg)';
             
-            // After clock wipe completes
             setTimeout(function() {
-                // Hide intro elements by removing them from DOM completely
-        introOverlay.remove();
-        clockWipe.remove();
-                
-                // Show main content
-        mainContent.classList.add('show');
-      }, 3000); // Same as the transition time of clock wipe
-    }, 1500);
-    }, 3000); // Time to display restaurant name before wipe starts
+                introOverlay.remove();
+                clockWipe.remove();
+                mainContent.classList.add('show');
+            }, 3000);
+        }, 1500);
+    }, 3000);
 });
 
-    // Function to trigger fade-out effect
-    function fadeOutIntro() {
-        const introOverlay = document.getElementById('introOverlay');
-        introOverlay.classList.add('fade-out');
+function fadeOutIntro() {
+    const introOverlay = document.getElementById('introOverlay');
+    introOverlay.classList.add('fade-out');
 
-        // Optionally, you can hide it after the fade-out is complete
-        setTimeout(() => {
-            introOverlay.style.display = 'none'; // Hides the overlay after fade-out
-        }, 500); // Match this duration with the fade-out transition duration
-    }
+    setTimeout(() => {
+        introOverlay.style.display = 'none';
+    }, 500);
+}
 
-    // Call this function when you want to fade out the intro
-    window.onload = () => {
-        setTimeout(fadeOutIntro, 2500); // Auto fade out after 3 seconds
-    };
+window.onload = () => {
+    setTimeout(fadeOutIntro, 2500);
+};
 
-
-
-
-// Store reviews in localStorage
 let reviews = JSON.parse(localStorage.getItem('reviews')) || [];
 let currentRating = 0;
 let currentLikedReviewId = null;
 
-// Display reviews
 function displayReviews() {
     const reviewList = document.getElementById('reviewList');
     reviewList.innerHTML = '';
 
-    // Sort reviews with newest first
     const sortedReviews = [...reviews].reverse();
 
     sortedReviews.forEach(review => {
         const reviewElement = document.createElement('div');
         reviewElement.className = 'review-item';
 
-        // Create stars based on rating
         let stars = '';
         for (let i = 1; i <= 5; i++) {
             stars += i <= review.rating ? '★' : '☆';
@@ -90,7 +68,6 @@ function displayReviews() {
         reviewList.appendChild(reviewElement);
     });
 
-    // Add event listeners to buttons
     document.querySelectorAll('.like-btn').forEach(button => {
         button.addEventListener('click', handleLike);
     });
@@ -104,13 +81,11 @@ function displayReviews() {
     });
 }
 
-// Format date to a readable string
 function formatDate(date) {
     const options = { year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' };
     return new Date(date).toLocaleDateString('sq-AL', options);
 }
 
-// Handle form submission
 document.getElementById('reviewForm').addEventListener('submit', function(e) {
     e.preventDefault();
 
@@ -136,26 +111,21 @@ document.getElementById('reviewForm').addEventListener('submit', function(e) {
     reviews.push(newReview);
     localStorage.setItem('reviews', JSON.stringify(reviews));
 
-    // Reset form
     document.getElementById('reviewForm').reset();
     resetStarRating();
 
-    // Update display
     displayReviews();
     showNotification('Review u shtua me sukses!');
 
-    // Scroll to show the newest review
     reviewList.scrollTop = reviewList.scrollHeight;
 });
 
-// Star rating functionality
 document.querySelectorAll('.star').forEach(star => {
     star.addEventListener('click', function() {
         const value = parseInt(this.getAttribute('data-value'));
         document.getElementById('rating').value = value;
         currentRating = value;
 
-        // Update visual
         document.querySelectorAll('.star').forEach((s, index) => {
             if (index < value) {
                 s.classList.add('selected');
@@ -174,23 +144,19 @@ function resetStarRating() {
     });
 }
 
-// Handle like button
 function handleLike(e) {
     const reviewId = e.target.getAttribute('data-id');
     currentLikedReviewId = reviewId;
 
-    // Show feedback modal
     const modal = document.getElementById('feedbackModal');
     modal.style.display = 'flex';
 }
 
-// Handle dislike button
 function handleDislike(e) {
     const reviewId = e.target.getAttribute('data-id');
     showNotification('Faleminderit për feedback-un!');
 }
 
-// Handle delete button
 function handleDelete(e) {
     const reviewId = e.target.getAttribute('data-id');
     reviews = reviews.filter(review => review.id !== reviewId);
@@ -199,7 +165,6 @@ function handleDelete(e) {
     showNotification('Review u fshi me sukses!');
 }
 
-// Handle feedback modal responses
 document.getElementById('yesBtn').addEventListener('click', function() {
     if (currentLikedReviewId) {
         const reviewIndex = reviews.findIndex(review => review.id === currentLikedReviewId);
@@ -219,7 +184,6 @@ document.getElementById('noBtn').addEventListener('click', function() {
     showNotification('Faleminderit për feedback-un!');
 });
 
-// Show notification
 function showNotification(message) {
     const notification = document.getElementById('notification');
     notification.textContent = message;
@@ -230,16 +194,14 @@ function showNotification(message) {
     }, 3000);
 }
 
-// Add some test reviews if none exist (for demonstration)
 if (reviews.length === 0) {
-    // Add some dummy reviews for testing scroll
     for (let i = 1; i <= 10; i++) {
         reviews.push({
             id: `test-${i}`,
-            name: `Përdorues Test ${i}`,
-            text: `Ky është një review testues numër ${i}. Shërben për të testuar sistemin e review-ve.`,
+            name: `Përdorues: ${i}`,
+            text: `Kjo eshte nje review nga ${i}.`,
             rating: Math.floor(Math.random() * 5) + 1,
-            date: formatDate(new Date(Date.now() - i * 86400000)), // i days ago
+            date: formatDate(new Date(Date.now() - i * 86400000)),
             likes: Math.floor(Math.random() * 10),
             timestamp: Date.now() - i * 86400000
         });
@@ -247,5 +209,4 @@ if (reviews.length === 0) {
     localStorage.setItem('reviews', JSON.stringify(reviews));
 }
 
-// Initialize
 displayReviews();

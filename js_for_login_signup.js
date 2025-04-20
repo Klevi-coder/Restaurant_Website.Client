@@ -24,8 +24,7 @@ function login() {
     const email = document.getElementById("login-email").value;
     const password = document.getElementById("login-password").value;
 
-    // Dërgo të dhënat për login
-    fetch("https://localhost:7177/api/Login/login", {  // Sigurohu që ky është URL i duhur për backend-in
+    fetch("https://localhost:7177/api/Login/login", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -40,8 +39,7 @@ function login() {
         console.log(result);
         if (result.Message === "Login successful.") {
             alert("Login successful!");
-            // Redirect në faqen tjetër (faqja kryesore ose dashboard)
-            window.location.href = "menu.html";  // Për shembull, kaloni në faqen kryesore pas login-it
+            window.location.href = "menu.html";
         } else {
             alert(result.Message || "Login failed.");
         }
@@ -57,14 +55,12 @@ function signup() {
     const password = document.getElementById("signup-password").value;
     const confirmPassword = document.getElementById("signup-confirm-password").value;
 
-    // Kontrollo nëse fjalëkalimet përputhen
     if (password !== confirmPassword) {
         document.getElementById("signup-error-message").style.display = "block";
         document.getElementById("signup-error-message").textContent = "Passwords do not match!";
         return;
     }
 
-    // Dërgo të dhënat për regjistrim
     fetch("https://localhost:7177/api/Signup/register", {
         method: "POST",
         headers: {
@@ -80,9 +76,7 @@ function signup() {
     .then(response => response.json())
     .then(result => {
         if (result.Message === "User registered successfully.") {
-            // Mund të shtosh një mesazh sukses për përdoruesin
             alert("Registration successful!");
-            // Mund të bësh një redirect në faqen tjetër (p.sh. login)
             showLogin();
         } else {
             document.getElementById("signup-error-message").style.display = "block";

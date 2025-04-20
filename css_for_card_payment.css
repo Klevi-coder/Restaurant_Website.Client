@@ -1,212 +1,196 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, rgb(125, 8, 8), rgb(161, 7, 7));
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #333;
+    position: relative;
+}
 
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('img/backgr13.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    filter: blur(3px);
+    z-index: -1;
+}
 
-        /* General Styles */
-        body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg,rgb(125, 8, 8),rgb(161, 7, 7));
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            color: #333;
-            position: relative;
-        }
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #fff3d3;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-around;
+    padding: 5px 0;
+    margin: 0;
+}
 
+.navbar a {
+    color: #000000;
+    position: relative;
+    font-size: 1.2rem;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: 600;
+    padding: 6px 6px;
+    text-decoration: none;
+    border-radius: 5rem;
+    transition: background 0.5s, box-shadow 0.5s;
+    background-color: transparent;
+}
 
-         /* Pseudo-element for the blurred background */
-        body::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: url('img/backgr13.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            min-height: 100vh; /* Ensures the background covers the full viewport height */
-            filter: blur(3px); /* Adjust the blur intensity */
-            z-index: -1; /* Places the background behind the content */
-        }
+.navbar a:hover {
+    color: #ffffff;
+    background-color: #5e1313;
+}
 
+body {
+    margin: 0;
+}
 
-        .navbar {
-            position: fixed; /* Fixes the navbar at the top */
-            top: 0; /* Aligns it to the top of the page */
-            width: 100%; /* Ensures it spans the full width */
-            background-color: #fff3d3; /* Set a background color to avoid transparency */
-            z-index: 1000; /* Ensures it stays above other content */
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Adds a shadow for better visibility */
-            display: flex; /* Aligns items in a row */
-            justify-content: space-around; /* Distributes space evenly */
-            padding: 5px 0; /* Adds padding for better spacing */
-            margin: 0; /* Removes any default margin */
-                }
-                
-                .navbar a {
-                    color: #000000;
-                    position: relative;                /* Pozitivi për të menaxhuar stilin */
-                    font-size: 1.2rem;
-                    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-                    font-weight: 600;
-                    padding: 6px 6px;               /* Padding për butonët */
-                    text-decoration: none;             /* Hiq linjën e nënvizimit */
-                    border-radius: 5rem;              /* Rrethimi i këndëve */
-                    transition: background 0.5s, box-shadow 0.5s; /* Kalimi i ngjyrës së sfondit dhe hijes */
-                    background-color: transparent;     /* Sfondi fillestar */
-                }
-                
-                .navbar a:hover {
-                    color: #ffffff;            /* Ngjyra e tekstit kur hover */
-                    background-color: #5e1313;             /* Ngjyra e sfondit kur hover */
-                }
+.payment-container {
+    max-width: 500px;
+    width: 100%;
+    height: 350px;
+    margin: 0 100px;
+    padding: 30px;
+    background: rgba(255, 251, 251, 0);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    animation: slideIn 0.5s ease-out;
+    max-height: 80vh;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    box-sizing: border-box;
+}
 
+::-webkit-scrollbar {
+    width: 0;
+}
 
-                
-                body {
-                    margin: 0; /* Removes default body margin */
-                }
+::-webkit-scrollbar-thumb {
+    background: transparent;
+}
 
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(5);
+    }
+}
 
-                .payment-container {
-                    max-width: 500px;
-                    width: 100%;
-                    height: 350px;
-                    margin: 0 100px;
-                    padding: 30px;
-                    background: rgba(255, 251, 251, 0);
-                    border-radius: 12px;
-                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-                    animation: slideIn 0.5s ease-out;
-                    max-height: 80vh; /* Limits height for responsiveness */
-                    overflow-y: scroll;
-                    display: flex;
-                    flex-direction: column;
-                    gap: 8px;
-                    box-sizing: border-box;
-                }
-                
+@media (max-width: 768px) {
+    form {
+        padding: 20px;
+    }
 
+    h1 {
+        font-size: 1.5rem;
+    }
 
-                                /* Custom scrollbar styles */
-                                ::-webkit-scrollbar {
-                                    width: 0; /* Hides the scrollbar */
-                                    }
-                    
-                    
-                                    ::-webkit-scrollbar-thumb {
-                                    background: transparent; /* Makes the scrollbar thumb transparent */
-                                    }
+    label {
+        font-size: 1.1rem;
+    }
+}
 
-                                    @keyframes slideIn {
-                                        from {
-                                        opacity: 0;
-                                        transform: translateY(-20px);
-                                        }to {
-                                        opacity: 1;
-                                        transform: translateY(5);
-                                        }}
+h1 {
+    text-align: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 1.7rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #a61924;
+}
 
+.form-group label {
+    background: rgba(255, 255, 255, 0);
+    width: 100%;
+    height: 10px;
+    display: block;
+    margin-bottom: 8px;
+    color: #c50c0c;
+    font-weight: bold;
+}
 
-                @media (max-width: 768px) {
-                    form {
-                        padding: 20px;
-                    }
-                
-                    h1 {
-                        font-size: 1.5rem;
-                    }
-                
-                    label {
-                        font-size: 1.1rem;
-                    }
-                }
+.form-group input {
+    width: 100%;
+    padding: 6px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
 
-        h1 {
-            text-align: center;
-            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-            font-size: 1.7rem;
-            font-weight: 600;
-            margin-bottom: 20px;
-            color: #a61924;
-        }
+.form-group input:focus {
+    border-color: #ff0000;
+    box-shadow: 0 0 8px rgb(255, 0, 0);
+    outline: none;
+}
 
+.error-message {
+    color: #ff4d4d;
+    font-size: 14px;
+    margin-top: 5px;
+    display: block;
+}
 
-        .form-group label {
-            background: rgba(255, 255, 255, 0);
-            width: 100%;
-            height: 10px;
-            display: block;
-            margin-bottom: 8px;
-            color: #c50c0c;
-            font-weight: bold;
-        }
+button {
+    width: 103%;
+    padding: 10px;
+    background: linear-gradient(135deg, #780c0c, #ba0303);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
 
-        .form-group input {
-            width: 100%;
-            padding: 6px;
-            border: 2px solid #ddd;
-            border-radius: 6px;
-            font-size: 16px;
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
-        }
+button:hover {
+    background: linear-gradient(135deg, #ba0303, #780c0c);
+    transform: translateY(-2px);
+}
 
-        .form-group input:focus {
-            border-color: #ff0000;
-            box-shadow: 0 0 8px rgb(255, 0, 0);
-            outline: none;
-        }
+button:active {
+    transform: translateY(0);
+}
 
-        .error-message {
-            color: #ff4d4d;
-            font-size: 14px;
-            margin-top: 5px;
-            display: block;
-        }
+@media (max-width: 480px) {
+    .payment-container {
+        padding: 20px;
+    }
 
-        /* Button Styles */
-        button {
-            width: 103%;
-            padding: 10px;
-            background: linear-gradient(135deg, #780c0c,#ba0303);
-            color: #fff;
-            border: none;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-            font-weight: 600;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background 0.3s ease, transform 0.3s ease;
-        }
+    h1 {
+        font-size: 20px;
+    }
 
-        button:hover {
-            background: linear-gradient(135deg, #ba0303,  #780c0c);
-            transform: translateY(-2px);
-        }
+    .form-group input {
+        padding: 10px;
+    }
 
-        button:active {
-            transform: translateY(0);
-        }
-
-        /* Responsive Design */
-        @media (max-width: 480px) {
-            .payment-container {
-                padding: 20px;
-            }
-
-            h1 {
-                font-size: 20px;
-            }
-
-            .form-group input {
-                padding: 10px;
-            }
-
-            button {
-                padding: 10px;
-            }
-        }
+    button {
+        padding: 10px;
+    }
+}

@@ -81,78 +81,66 @@
 
 
         body {
-            margin: 0;
-            padding-top: 0px;
-            }
-
-
-
-.form-container {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    height: calc(100vh - 50px); 
-    margin-top: 60px; 
-}
-
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; 
+            margin: 0; 
+        }
         
+        form {
+            width: 370px;
+            height: 320px;
+            margin: 0;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            animation: slideIn 0.5s ease-out;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            box-sizing: border-box;
+            z-index: 2;
+            font-weight: 600;
+        }
+            
+
+
+                            ::-webkit-scrollbar {
+                                width: 0; 
+                                }
                 
-form {
-    position: center;
-    align-items: center;
-    width: 370px;
-    height: 320px;
-    margin: 330px auto;
-    padding: 25px;
-    background: rgba(255, 251, 251, 0);
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    animation: slideIn 0.5s ease-out;
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    box-sizing: border-box;
-    z-index: 2;
-}
+                
+                                ::-webkit-scrollbar-thumb {
+                                background: transparent; 
+                                }
 
-
-
-                ::-webkit-scrollbar {
-                    width: 0; 
-                    }
-    
-    
-                    ::-webkit-scrollbar-thumb {
-                    background: transparent; 
-                    }
-
-                    @media (max-width: 768px) {
-                        form {
-                            padding: 20px;
-                        }
-                    
-                        h1 {
-                            font-size: 1.5rem;
-                        }
-                    
-                        label {
-                            font-size: 1.1rem;
-                        }
-                    }
-            
-            
-            
-                    @keyframes slideIn {
-                        from {
-                        opacity: 0;
-                        transform: translateY(-20px);
-                        }to {
-                        opacity: 1;
-                        transform: translateY(5);
-                        }}
-
-
+                                @media (max-width: 768px) {
+                                    form {
+                                        padding: 20px;
+                                    }
+                                
+                                    h1 {
+                                        font-size: 1.5rem;
+                                    }
+                                
+                                    label {
+                                        font-size: 1.1rem;
+                                    }
+                                }
+                        
+                        
+                        
+                                @keyframes slideIn {
+                                    from {
+                                    opacity: 0;
+                                    transform: translateY(-20px);
+                                    }to {
+                                    opacity: 1;
+                                    transform: translateY(5);
+                                    }
+                                }
 
             p {
                 text-align: left;
@@ -164,15 +152,16 @@ form {
                 font-size: 2.5rem;
                 margin-bottom: 10px;
                 color: #70161e;
-                animation: slideIn 0.5s ease-out;
+                animation: slideIn 0.7s ease-out;
                 z-index: 10;
             }
 
 
         /* Form Elements */
         input, textarea {
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-weight: 600;
             width: 100%;
-            padding: 12px;
             border: 2px solid #ffffff;
             border-radius: 10px;
             box-sizing: border-box;                      
@@ -180,37 +169,35 @@ form {
 
         #adress{
             width: 100%;
-            padding: 12px;
+            padding: 10px;
         }
 
 
         #quantity{
             width: 100%;
-            padding: 12px;
+            padding: 10px;
         }
 
 
         #product{
             width: 100%;
-            padding: 12px;
+            padding: 10px;
         }
 
 
         #customerName{
-            font-size: 1.2rem;
-            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
             font-weight: 600;
             width: 100%;
-            padding: 12px;
+            padding: 10px;
         }
 
 
         #paymentMethod{
             width: 100%;
-            padding: 12px;
-            border-radius: 10px;
+            padding: 10px;
+            border-radius: 8px;
             box-sizing: border-box;
-            border: 2px solid #ffffff;        
+            border: solid #ffffff;        
         }
 
         

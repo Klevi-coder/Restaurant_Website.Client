@@ -4,15 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rezervime</title>
-
     <link rel="stylesheet" href="css_for_rezervime.css">
-
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    
 </head>
 <body>
 
-  <!-- Navbar -->
   <ul class="navbar">
     <a href="faqe_kryesore.html" class="home-active">Kreu</a>
     <a href="menu.html">Menu</a>
@@ -22,13 +18,10 @@
     <a href="reviews.html">Reviews</a>
   </ul>
 
-  <!-- Title -->
   <p>𝓡𝓮𝔃𝓮𝓻𝓿𝓸 𝓽𝓪𝓷𝓲</p>
 
-  <!-- Rezervimi Form -->
   <div class="form">
     <form id="rezervimiForm">
-    
       <label for="numriPersonave" id="labelNumriPersonave">Numri i Personave:</label>
       <input type="number" id="numriPersonave" min="1" max="100" required>
 
@@ -57,11 +50,10 @@
 
 </body>
 
-
 <script>
     $(document).ready(function () {
         $('#rezervimiForm').on('submit', function (e) {
-            e.preventDefault(); 
+            e.preventDefault();
 
             const numriPersonave = $('#numriPersonave').val();
             const vakt = $('#vakt').val();
@@ -75,17 +67,15 @@
                 Zona: zona
             };
 
-            // Dërgo POST request te API për të ruajtur rezervimin
-            fetch('https://localhost:7177/api/Reservation/reserve', { // Zëvendëso `localhost:7250` me URL dhe portin e backend-it
+            fetch('https://localhost:7177/api/Reservation/reserve', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(rezervimData) // Krijo trupin e kërkesës me të dhënat e rezervimit
+                body: JSON.stringify(rezervimData)
             })
-            .then(response => response.json()) // Kthe përgjigjen si JSON
+            .then(response => response.json())
             .then(data => {
-                // Shfaq mesazhin e suksesit
                 $('#mesazhi').html(`
                     Rezervimi u ruajt me sukses! <br>
                     Numri i personave: ${numriPersonave} <br>
@@ -94,13 +84,11 @@
                     Zona: ${zona} <br>`);
             })
             .catch(error => {
-                // Shfaq mesazhin në rast gabimi
                 $('#mesazhi').html("Gabim gjatë ruajtjes së rezervimit.");
                 console.error(error);
             });
         });
     });
 </script>
-
 
 </html>

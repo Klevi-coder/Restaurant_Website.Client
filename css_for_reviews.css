@@ -1,177 +1,160 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-image: url('img/backgr13.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    overflow: hidden;
+    height: 100vh;
+}
 
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #fff3d3;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-around;
+    padding: 5px 0;
+    margin: 0;
+}
 
-        /* Main Styles */
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-image: url('img/backgr13.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            margin: 0;
-            padding: 0;
-            color: #333;
-            overflow: hidden;
-            height: 100vh;
-        }
+.navbar a {
+    color: #000000;
+    position: relative;
+    font-size: 1.2rem;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: 600;
+    padding: 6px 6px;
+    text-decoration: none;
+    border-radius: 5rem;
+    transition: background 0.5s, box-shadow 0.5s;
+    background-color: transparent;
+}
 
+.navbar a:hover {
+    color: #ffffff;
+    background-color: #5e1313;
+}
 
-        .navbar {
-            position: fixed;                                   /* Fixes the navbar at the top */
-            top: 0;                                            /* Aligns it to the top of the page */
-            width: 100%;                                       /* Ensures it spans the full width */
-            background-color: #fff3d3;                       /* Set a background color to avoid transparency */
-            z-index: 1000;                                     /* Ensures it stays above other content */
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);        /* Adds a shadow for better visibility */
-            display: flex;                                     /* Aligns items in a row */
-            justify-content: space-around;                     /* Distributes space evenly */
-            padding: 5px 0;                                    /* Adds padding for better spacing */
-            margin: 0;                                         /* Removes any default margin */
-        }
+body {
+    margin: 0;
+}
 
+.main-content {
+    min-height: 0vh;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    transition: opacity 1s ease-in;
+}
 
-        .navbar a {
-                    color: #000000;
-                    position: relative;                     
-                    font-size: 1.2rem;
-                    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-                    font-weight: 600;
-                    padding: 6px 6px;                        
-                    text-decoration: none;                                 
-                    border-radius: 5rem;                                 
-                    transition: background 0.5s, box-shadow 0.5s; 
-                    background-color: transparent;
-                }
+.main-content.show {
+    opacity: 1;
+}
 
+.content-area {
+    padding: 0;
+    flex-grow: 0;
+}
 
-                .navbar a:hover {
-                    color: #ffffff;           
-                    background-color: #5e1313;    
-                }
+.intro-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #FF8C00;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
 
+.restaurant-name {
+    color: white;
+    font-size: 3.5rem;
+    font-weight: bold; 
+    text-align: center;
+}
 
-                body {
-                    margin: 0;
-                }
+.restaurant-name .a {
+    font-size: 2rem;
+}
 
+.intro-overlay .developer-credits {
+    font-size: 2rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
 
+.clock-wipe {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    clip-path: polygon(50% 50%, 50% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 0%, 50% 0%);
+    background-color: white;
+    transform-origin: center;
+    transform: rotate(0deg);
+    z-index: 1000;
+    opacity: 0;
+    transition: transform 2s ease-in-out;
+}
 
-                /*intro effects*/
+.intro-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #FF8C00;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    opacity: 1;
+    transition: opacity 1s ease-in;
+}
 
-                .main-content {
-                    min-height: 0vh;
-                    display: flex;
-                    flex-direction: column;
-                    opacity: 0;
-                    transition: opacity 1s ease-in;
-                }
-                
-                .main-content.show {
-                    opacity: 1;
-                }
-                
-                .content-area {
-                    padding: 0;
-                    flex-grow: 0;
-                }
-                
-                .intro-overlay {
-                    position: fixed;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
-                    background-color: #FF8C00;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    z-index: 999;
-                }
-                
-                .restaurant-name {
-                    color: white; /* Set the color here */
-                    font-size: 3.5rem; /* Increased font size for better visibility */
-                    font-weight: bold; 
-                    text-align: center;
-                }
-                
-                .restaurant-name .a{
-                    font-size: 2rem;
-                }
-                
-                .intro-overlay .developer-credits {
-                    font-size: 2rem; /* Increased font size for developer credits */
-                    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-                
-                }
-                
-                .clock-wipe {
-                    position: fixed;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
-                    clip-path: polygon(50% 50%, 50% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 0%, 50% 0%);
-                    background-color: white;
-                    transform-origin: center;
-                    transform: rotate(0deg);
-                    z-index: 1000;
-                    opacity: 0;
-                    transition: transform 2s ease-in-out;
-                }
-                
-                .intro-overlay {
-                    position: fixed;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
-                    background-color: #FF8C00;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    z-index: 999;
-                    opacity: 1; /* Start fully visible */
-                    transition: opacity 1s ease-in; /* Fade in */
-                }
-                
-                .intro-overlay.fade-out {
-                    opacity: 0; /* Fade out effect */
-                    transition: opacity 1s ease-out; /* Fade out transition */
-                }
-                
-                .main-content {
-                    min-height: 0vh;
-                    display: flex;
-                    flex-direction: column;
-                    opacity: 0;
-                    transition: opacity 1s ease-in;
-                }
-                
-                .main-content.show {
-                    opacity: 1;
-                }
+.intro-overlay.fade-out {
+    opacity: 0;
+    transition: opacity 1s ease-out;
+}
 
+.main-content {
+    min-height: 0vh;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    transition: opacity 1s ease-in;
+}
 
+.main-content.show {
+    opacity: 1;
+}
 
+.container {
+    max-width: 1200px;
+    height: 100px;
+    margin: 0 auto;
+    padding: 20px;
+    overflow-y: hidden;
+    height: calc(90vh - 50px);
+}
 
-                .container {
-                max-width: 1200px;
-                height: 100px;
-                margin: 0 auto;
-                padding: 20px;
-                overflow-y: hidden;
-                height: calc(90vh - 50px); /* Përshtat lartësinë duke marrë parasysh footer-in */
-                }
-
-
-/* Review List Styles */
 .review-list {
     margin-top: 5px;
-    max-height: calc(100vh - 195px); /* Përshtatni sipas lartësisë së footer-it */
-    overflow-y: auto; /* Mban scrollbar-in e brendshëm */
+    max-height: calc(100vh - 195px);
+    overflow-y: auto;
     padding-right: 10px;
-    padding-bottom: 10px; /* Zvogëloni hapësirën për footer-in */
-    box-sizing: border-box; /* Siguron që padding dhe bordurat llogariten në dimensione */
+    padding-bottom: 10px;
+    box-sizing: border-box;
 }
 
 .review-list::-webkit-scrollbar-track {
@@ -184,279 +167,271 @@
 }
 
 .review-item {
-    background-color: rgba(255, 213, 158, 0.192); /* Rritni transparencën për një pamje më të lehtë */
-    border-radius: 4px; /* Zvogëloni këndet e rrumbullakosura */
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); /* Zvogëloni hijen për një pamje më të lehtë */
-    padding: 10px; /* Zvogëloni padding-un */
-    margin-bottom: 8px; /* Zvogëloni hapësirën mes review-ve */
-    width: 98%; /* Lejoni që kutia të zërë të gjithë hapësirën */
+    background-color: rgba(255, 213, 158, 0.192);
+    border-radius: 4px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    margin-bottom: 8px;
+    width: 98%;
     height: 130px;
 }
 
 .review-header {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 5px; /* Zvogëloni hapësirën poshtë header-it */
+    margin-bottom: 5px;
     align-items: center;
 }
 
 .review-author {
     font-family: 'Trebuchet MS', Arial, sans-serif;
     font-weight: bold;
-    font-size: 1.5rem; /* Zvogëloni madhësinë e shkronjave */
+    font-size: 1.5rem;
 }
 
 .review-date {
-    font-size: 12px; /* Zvogëloni madhësinë e datës */
+    font-size: 12px;
     color: #777;
 }
 
 .review-rating {
     color: #ff6a00;
     text-align: left;
-    font-size: 1.3rem; /* Zvogëloni madhësinë e rating-ut */
+    font-size: 1.3rem;
     margin-top: 5px;
 }
 
 .review-text {
     font-weight: 600;
-    font-size: 1.3rem; /* Zvogëloni madhësinë e tekstin */
-font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    line-height: 1.5; /* Zvogëloni hapësirën mes rreshtave */
-    margin-bottom: 10px; /* Zvogëloni hapësirën poshtë tekstit */
+    font-size: 1.3rem;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    line-height: 1.5;
+    margin-bottom: 10px;
 }
-
 
 .review-actions {
     font-weight: 600;
     display: flex; 
     justify-content: flex-end;
     align-items: center;
-    gap: 10px; /* Hapësira midis butonave */
-    margin-top: 10px; /* Hapësirë mbi butona nëse nevojitet */
+    gap: 10px;
+    margin-top: 10px;
 }
 
-
 .review-likes {
-    font-size: 1rem; /* Zvogëloni madhësinë e likes */
+    font-size: 1rem;
     color: #555;
     margin-right: 10px;
     font-weight: 600;
 }
 
-        button {
-            background-color: #f0f0f0;
-            border: none;
-            padding: 6px 12px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 14px;
-            transition: background-color 0.3s;
-        }
-        
-        button:hover {
-            background-color: #e0e0e0;
-        }
-        
-        button.like-btn {
-            background-color: #e7f4e4;
-            color: #256a27;
-        }
-        
-        button.like-btn:hover {
-            background-color: #d4eacd;
-        }
-        
-        button.dislike-btn {
-            background-color: #fde8e8;
-            color: #1f47fa;
-        }
-        
-        button.dislike-btn:hover {
-            background-color: #f9d6d6;
-        }
-        
-        button.delete-btn {
-            background-color: #feeaed;
-            color: #f40000;
-        }
-        
-        button.delete-btn:hover {
-            background-color: #fdd5dd;
-        }
-        
-        /* Modal Styles */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            justify-content: center;
-            align-items: center;
-            z-index: 100;
-        }
-        
-        .modal-content {
-            background-color: rgb(255, 255, 255);
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            max-width: 400px;
-            width: 100%;
-            text-align: center;
-        }
-        
-        .modal-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 20px;
-        }
-        
-        /* Footer Styles - Fixed at bottom */
-        footer {
-            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-            background-color: #7e1717;
-            color: rgba(255, 255, 255, 0.689);
-            padding: 5px 0;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            z-index: 50;
-            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
-        }
-        
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 10px;
-        }
-        
-        .review-form {
-            display: grid;
-            grid-template-columns: 1fr 1fr 200px;
-            gap: 5px;
-            align-items: start;
-        }
-        
-        @media (max-width: 768px) {
-            .review-form {
-                grid-template-columns: 1fr;
-            }
-        }
-        
-        .review-form input,
-        .review-form textarea {
-            padding: 15px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-        }
+button {
+    background-color: #f0f0f0;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
 
-        #reviewtext{
-            width: 100%;
-        }
-        
-        .review-form button {
-            align-self: center;
-            background-color: #8a2222;
-            color: white;
-            padding: 10px;
-            width: 150px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            height: 100%;
-        }
-        
-        .review-form button:hover {
-            background-color: #6b1a1a;
-        }
-        
-        .form-group {
-            width: 100%;
-            max-height: 200px;
-            max-width: 450px; 
-            box-sizing: border-box; 
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-        
-        textarea {
-            height: 50px; /* Set a fixed height to match the input field */
-            width: 100%; /* Full width of the container */
-            box-sizing: border-box; /* Include padding and border in width */
-            padding: 10px;
-            resize: none;
-        }
-        
-        .form-group label {
-            text-align: center;
-            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-            font-weight: 500;
-            font-size: 1.2rem;
-            color: #ffffff;
-        }
-        
-        h1 {
-            text-align: center;
-            margin-bottom: 30px;
-            color: #7a1c1f;
-        }
-        
-        /* Star Rating Styles */
-        .star-rating {
-            align-self: center;
-            margin-top: 5px;
-        }
-        
-        .star {
-            color: #ccc;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-        
-        .star.selected {
-            color: #e7711b;
-        }
-        
-        /* Notification */
-        .notification {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background-color: #333;
-            color: white;
-            padding: 15px 20px;
-            border-radius: 4px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-            display: none;
-            z-index: 1000;
-            animation: slideIn 0.5s forwards;
-        }
+button:hover {
+    background-color: #e0e0e0;
+}
 
+button.like-btn {
+    background-color: #e7f4e4;
+    color: #256a27;
+}
 
-        /* Custom scrollbar styles */
-        ::-webkit-scrollbar {
-        width: 0; /* Hides the scrollbar */
-        }
+button.like-btn:hover {
+    background-color: #d4eacd;
+}
 
+button.dislike-btn {
+    background-color: #fde8e8;
+    color: #1f47fa;
+}
 
-        ::-webkit-scrollbar-thumb {
-        background: transparent; /* Makes the scrollbar thumb transparent */
-        }
+button.dislike-btn:hover {
+    background-color: #f9d6d6;
+}
 
+button.delete-btn {
+    background-color: #feeaed;
+    color: #f40000;
+}
 
-        @keyframes slideIn {
-        from {
-                transform: translateX(100%);
-                opacity: 0;
-        }to {
-                transform: translateX(0);
-                opacity: 1;
-            }}
+button.delete-btn:hover {
+    background-color: #fdd5dd;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.modal-content {
+    background-color: rgb(255, 255, 255);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+footer {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: #7e1717;
+    color: rgba(255, 255, 255, 0.689);
+    padding: 5px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 50;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+
+.review-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr 200px;
+    gap: 5px;
+    align-items: start;
+}
+
+@media (max-width: 768px) {
+    .review-form {
+        grid-template-columns: 1fr;
+    }
+}
+
+.review-form input,
+.review-form textarea {
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+#reviewtext {
+    width: 100%;
+}
+
+.review-form button {
+    align-self: center;
+    background-color: #8a2222;
+    color: white;
+    padding: 10px;
+    width: 150px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    height: 100%;
+}
+
+.review-form button:hover {
+    background-color: #6b1a1a;
+}
+
+.form-group {
+    width: 100%;
+    max-height: 200px;
+    max-width: 450px; 
+    box-sizing: border-box; 
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+textarea {
+    height: 50px;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    resize: none;
+}
+
+.form-group label {
+    text-align: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: 500;
+    font-size: 1.2rem;
+    color: #ffffff;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #7a1c1f;
+}
+
+.star-rating {
+    align-self: center;
+    margin-top: 5px;
+}
+
+.star {
+    color: #ccc;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.star.selected {
+    color: #e7711b;
+}
+
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #333;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 4px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    display: none;
+    z-index: 1000;
+    animation: slideIn 0.5s forwards;
+}
+
+::-webkit-scrollbar {
+    width: 0;
+}
+
+::-webkit-scrollbar-thumb {
+    background: transparent;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}

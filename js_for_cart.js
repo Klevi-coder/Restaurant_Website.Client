@@ -32,13 +32,11 @@
             const totalAmount = parseFloat(document.getElementById('total-amount').textContent.replace('$', ''));
             if (totalAmount > 0) {
             alert(`Proceeding to checkout. Total Amount: $${totalAmount.toFixed(2)}`);
-            // Redirect to card payment page
+
             window.location.href = 'card_payment.html';
             } else {
             alert('Your cart is empty. Add items to proceed to checkout.');
             }
             }
 
-
-            // Load cart items and calculate total on page load
             window.onload = loadCart;

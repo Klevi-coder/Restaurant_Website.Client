@@ -1,120 +1,92 @@
-
-
-
-        document.addEventListener('DOMContentLoaded', function() {
-            // Elements
-        const introOverlay = document.getElementById('introOverlay');
-            const clockWipe = document.getElementById('clockWipe');
-            const mainContent = document.getElementById('mainContent');
+document.addEventListener('DOMContentLoaded', function() {
+    const introOverlay = document.getElementById('introOverlay');
+    const clockWipe = document.getElementById('clockWipe');
+    const mainContent = document.getElementById('mainContent');
+    
+    setTimeout(function() {
+        clockWipe.style.opacity = '0';
+        
+        setTimeout(function() {
+            clockWipe.style.transform = 'rotate(90deg)';
             
-            // Start animation sequence after a short delay
             setTimeout(function() {
-                // Make clock wipe visible
-                clockWipe.style.opacity = '0';
-                
-                // Animate clock wipe
-                setTimeout(function() {
-                    clockWipe.style.transform = 'rotate(90deg)';
-                    
-                    // After clock wipe completes
-                    setTimeout(function() {
-                        // Hide intro elements by removing them from DOM completely
                 introOverlay.remove();
                 clockWipe.remove();
-                        
-                        // Show main content
                 mainContent.classList.add('show');
-              }, 5000); // Same as the transition time of clock wipe
             }, 5000);
-            }, 5000); // Time to display restaurant name before wipe starts
-        });
+        }, 5000);
+    }, 5000);
+});
 
-            // Function to trigger fade-out effect
-            function fadeOutIntro() {
-                const introOverlay = document.getElementById('introOverlay');
-                introOverlay.classList.add('fade-out');
-        
-                // Optionally, you can hide it after the fade-out is complete
-                setTimeout(() => {
-                    introOverlay.style.display = 'none'; // Hides the overlay after fade-out
-                }, 3000); // Match this duration with the fade-out transition duration
-            }
-        
-            // Call this function when you want to fade out the intro
-            window.onload = () => {
-                setTimeout(fadeOutIntro, 2500); // Auto fade out after 3 seconds
-            };
+function fadeOutIntro() {
+    const introOverlay = document.getElementById('introOverlay');
+    introOverlay.classList.add('fade-out');
+    
+    setTimeout(() => {
+        introOverlay.style.display = 'none';
+    }, 3000);
+}
 
+window.onload = () => {
+    setTimeout(fadeOutIntro, 2500);
+};
 
-
-
-
-
-
-        var TrandingSlider = new Swiper('.tranding-slider', {
-        effect: 'coverflow',
-        grabCursor: true,
-        centeredSlides: true,
-        loop: true,
-        slidesPerView: 'auto',
-        coverflowEffect: {
+var TrandingSlider = new Swiper('.tranding-slider', {
+    effect: 'coverflow',
+    grabCursor: true,
+    centeredSlides: true,
+    loop: true,
+    slidesPerView: 'auto',
+    coverflowEffect: {
         rotate: 0,
         stretch: 0,
         depth: 100,
         modifier: 2.5,
-        },
-        pagination: {
+    },
+    pagination: {
         el: '.swiper-pagination',
         clickable: true,
-        },
-        navigation: {
+    },
+    navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
-        }
-    });
+    }
+});
 
-    document.addEventListener('DOMContentLoaded', function() {
-        // Marrim referencën e Swiper-it ekzistues
-        const sliderEl = document.querySelector('.tranding-slider');
-        const existingSwiper = sliderEl.swiper;
+document.addEventListener('DOMContentLoaded', function() {
+    const sliderEl = document.querySelector('.tranding-slider');
+    const existingSwiper = sliderEl.swiper;
+    
+    if (existingSwiper) {
+        existingSwiper.params.autoplay = {
+            delay: 2000,
+            disableOnInteraction: false
+        };
         
-        if (existingSwiper) {
-            // Shtojmë autoplay 
-            existingSwiper.params.autoplay = {
-                delay: 2000,
-                disableOnInteraction: false
-            };
-            
-            // Shtojmë shpejtësinë e tranzicionit
-            existingSwiper.params.speed = 1500; // 1s për tranzicion
-            
-            // Përditësojmë parametrat
-            existingSwiper.update();
-            
-            // Aktivizojmë autoplay
+        existingSwiper.params.speed = 1500;
+        
+        existingSwiper.update();
+        
+        existingSwiper.autoplay.start();
+        
+        sliderEl.addEventListener('mouseenter', function() {
+            existingSwiper.autoplay.stop();
+        });
+        
+        sliderEl.addEventListener('mouseleave', function() {
             existingSwiper.autoplay.start();
-            
-            // Shtojmë dëgjuesit e eventeve për ndërveprimin me mausin
-            sliderEl.addEventListener('mouseenter', function() {
-                existingSwiper.autoplay.stop(); // Ndalojmë autoplay kur mausi është mbi slider
+        });
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    existingSwiper.autoplay.start();
+                } else {
+                    existingSwiper.autoplay.stop();
+                }
             });
-            
-            sliderEl.addEventListener('mouseleave', function() {
-                existingSwiper.autoplay.start(); // Rifillojmë autoplay kur mausi largohet
-            });
-            
-            // Kontrolli me IntersectionObserver për të aktivizuar vetëm kur është në pamje
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        existingSwiper.autoplay.start();
-                    } else {
-                        existingSwiper.autoplay.stop();
-                    }
-                });
-            }, { threshold: 0.3 }); // Aktivizohet kur 30% e sliderit është i dukshëm
-            
-            observer.observe(sliderEl);
-        }
-    });
-
+        }, { threshold: 0.3 });
+        
+        observer.observe(sliderEl);
+    }
+});

@@ -1,153 +1,136 @@
-    
-    
-                body {
-                font-family: 'Arial', sans-serif;
-                margin: 0;
-                padding: 0;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 100vh;
-                color: #333;
-                position: relative;
-                }
-    
-    
-                body::before {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background-image: url('img/backgr13.jpg');
-                background-size: cover;
-                background-position: center;
-                background-repeat: no-repeat;
-                min-height: 100vh;                  
-                filter: blur(2px);
-                z-index: -1;
-                }
-    
-    
-                .navbar {
-                position: fixed;
-                top: 0;
-                width: 100%;
-                background-color: #fff3d3;
-                z-index: 1000;
-                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-                display: flex;
-                justify-content: space-around;
-                padding: 5px 0;
-                margin: 0;
-                }
-    
-    
-                .navbar a {
-                color: #000000;
-                position: relative;                /* Pozitivi për të menaxhuar stilin */
-                font-size: 1.2rem;
-                font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-                font-weight: 600;
-                padding: 6px 6px;               /* Padding për butonët */
-                text-decoration: none;             /* Hiq linjën e nënvizimit */
-                border-radius: 5rem;              /* Rrethimi i këndëve */
-                transition: background 0.5s, box-shadow 0.5s; /* Kalimi i ngjyrës së sfondit dhe hijes */
-                background-color: transparent;     /* Sfondi fillestar */
-                }
-    
-    
-                
-                .navbar a:hover {
-                color: #ffffff;            /* Ngjyra e tekstit kur hover */
-                background-color: #5e1313;             /* Ngjyra e sfondit kur hover */
-                }
-    
-    
-                
-                body {
-                margin: auto; /* Removes default body margin */
-                padding-top: 0px; /* Adjust this value based on the height of your navbar */
-                }
-    
-    
-                /*container */
-                .container {
-                    background: rgba(255, 251, 251, 0);
-                    padding: 25px;
-                    border-radius: 10px;
-                    width: 300px; /* Change this value to adjust width */
-                    height: 350px; /* Change this value to adjust height */
-                    text-align: center;
-                    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-                    animation: slideIn 0.7s ease-out;
-                    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-                    font-weight: 600;
-                    line-height: 1;
-                }
-    
-    
-                @keyframes slideIn {
-                from {
-                opacity: 0;
-                transform: translateY(-20px);
-                }to {
-                opacity: 1;
-                transform: translateY(0); /* Rregulloni vlerën këtu */
-                }}
-    
-    
-                input {
-                width: 94%;
-                padding: 5px;
-                margin: 10px 0;
-                display: block;
-                border-color: #ffffff;
-                border-radius: 6px;
-                }
-    
-    
-                button {
-                width: 100%;
-                padding: 10px;
-                margin-top: 10px;
-                background: linear-gradient(135deg, #c62a2a,  #780c0c);
-                color: white;
-                border: none;
-                cursor: pointer;
-                border-radius: 5px;   
-                }
-    
-    
-                button:hover {
-                    background: linear-gradient(135deg, #870f0f,  #cc3434);
-                }
-    
-    
-                .password-container {
-                position: relative;
-                }
-    
-    
-                .toggle-password {
-                position: absolute;
-                right: 10px;
-                top: 50%;
-                transform: translateY(-50%);
-                cursor: pointer;
-                font-size: 18px;
-                }
-    
-    
-                .error-message {
-                color: red;
-                font-size: 14px;                    
-                display: none; /* Fsheh mesazhin fillimisht */
-                text-align: center;
-                }
-    
-    
-                h2, p {
-                text-align: center;
-                }
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #333;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('img/backgr13.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;                  
+    filter: blur(2px);
+    z-index: -1;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #fff3d3;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-around;
+    padding: 5px 0;
+    margin: 0;
+}
+
+.navbar a {
+    color: #000000;
+    position: relative;
+    font-size: 1.2rem;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: 600;
+    padding: 6px 6px;
+    text-decoration: none;
+    border-radius: 5rem;
+    transition: background 0.5s, box-shadow 0.5s;
+    background-color: transparent;
+}
+
+.navbar a:hover {
+    color: #ffffff;
+    background-color: #5e1313;
+}
+
+body {
+    margin: auto;
+    padding-top: 0px;
+}
+
+.container {
+    background: rgba(255, 251, 251, 0);
+    padding: 25px;
+    border-radius: 10px;
+    width: 300px;
+    height: 350px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    animation: slideIn 0.7s ease-out;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: 600;
+    line-height: 1;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+input {
+    width: 94%;
+    padding: 5px;
+    margin: 10px 0;
+    display: block;
+    border-color: #ffffff;
+    border-radius: 6px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background: linear-gradient(135deg, #c62a2a, #780c0c);
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;   
+}
+
+button:hover {
+    background: linear-gradient(135deg, #870f0f, #cc3434);
+}
+
+.password-container {
+    position: relative;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.error-message {
+    color: red;
+    font-size: 14px;                    
+    display: none;
+    text-align: center;
+}
+
+h2, p {
+    text-align: center;
+}
