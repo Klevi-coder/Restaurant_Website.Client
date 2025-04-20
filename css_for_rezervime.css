@@ -79,7 +79,7 @@
                     position: center;
                     width: 370px;
                     height: 320px;
-                    margin: 0 auto;
+                    margin: 50px auto;
                     padding: 25px;
                     background: rgba(255, 251, 251, 0);
                     border-radius: 12px;
@@ -131,10 +131,9 @@
 
 
                 p {
-                    text-align: center;
+                    text-align: left;
                     font-size: 1rem;
                     font-weight: 600;
-                    line-height: 4;
                     position: fixed;
                     width: 100%;
                     top: 70px;
