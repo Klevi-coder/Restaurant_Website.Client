@@ -78,7 +78,7 @@
                     padding: 25px;
                     border-radius: 10px;
                     width: 300px; /* Change this value to adjust width */
-                    height: 360px; /* Change this value to adjust height */
+                    height: 350px; /* Change this value to adjust height */
                     text-align: center;
                     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
                     animation: slideIn 0.7s ease-out;
@@ -99,10 +99,12 @@
     
     
                 input {
-                width: 95%;
-                padding: 8px;
+                width: 94%;
+                padding: 5px;
                 margin: 10px 0;
                 display: block;
+                border-color: #ffffff;
+                border-radius: 6px;
                 }
     
     

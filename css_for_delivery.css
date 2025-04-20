@@ -294,20 +294,22 @@ form {
                             /* Modal styles */
                             .modal {
                                 font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-                                display: none; /* Initially hidden */
+                                display: none;
                                 text-align: center;
                                 position: fixed;
                                 z-index: 1;
                                 left: 0;
                                 top: 0;
-                                width: 60%;
-                                height: 60%;
+                                width: 30%;
+                                height: 57%;
                                 overflow: auto;
                             }
                     
                             .modal-content {
+                                width: 200px;
+                                height: 500px;
                                 background-color: #fefefe;
-                                margin: 15% auto;
+                                margin: 20% auto;
                                 padding: 10px;
                                 border: 1px solid #888;
                                 width: 80%;
