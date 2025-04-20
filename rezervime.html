@@ -8,34 +8,12 @@
     <link rel="stylesheet" href="css_for_rezervime.css">
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script>
-    $(document).ready(function () {
-      $('#rezervimiForm').on('submit', function (e) {
-        e.preventDefault(); // Parandalon rifreskimin e faqes
-
-        // Merr të dhënat nga forma
-        const numriPersonave = $('#numriPersonave').val();
-        const vakt = $('#vakt').val();
-        const ora = $('#ora').val();
-        const zona = $('input[name="zona"]:checked').val();
-
-        // Shfaq mesazhin e suksesit
-        $('#mesazhi').html(`
-          Rezervimi u krye me sukses! <br>
-          Detajet: <br>
-          Numri i personave: ${numriPersonave} <br>
-          Vakt: ${vakt} <br>
-          Ora: ${ora} <br>
-          Zona: ${zona} <br>`);
-      });
-    });
-  </script>
 </head>
 <body>
 
   <!--nav-list-->
   <ul class="navbar">
-    <a href="faqe_kryesore.html" class="home-active">Faqe Kryesore</a>
+    <a href="faqe_kryesore.html" class="home-active">Kreu</a>
     <a href="menu.html">Menu</a>
     <a href="delivery.html">Delivery</a>
     <a href="rezervime.html">Rezervime</a>
@@ -74,4 +52,28 @@
     <div id="mesazhi"></div>
     </div>
 </body>
+
+<script>
+  $(document).ready(function () {
+    $('#rezervimiForm').on('submit', function (e) {
+      e.preventDefault(); // Parandalon rifreskimin e faqes
+
+      // Merr të dhënat nga forma
+      const numriPersonave = $('#numriPersonave').val();
+      const vakt = $('#vakt').val();
+      const ora = $('#ora').val();
+      const zona = $('input[name="zona"]:checked').val();
+
+      // Shfaq mesazhin e suksesit
+      $('#mesazhi').html(`
+        Rezervimi u krye me sukses! <br>
+        Detajet: <br>
+        Numri i personave: ${numriPersonave} <br>
+        Vakt: ${vakt} <br>
+        Ora: ${ora} <br>
+        Zona: ${zona} <br>`);
+    });
+  });
+</script>
+
 </html>
