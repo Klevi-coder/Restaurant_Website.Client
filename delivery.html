@@ -77,7 +77,12 @@
             </select>
     
             <button type="button" id="kryej_porosine">Kryej Porosine</button>
+        
         </form>
+        <div id="successMessage" style="display: none; color: green; font-weight: bold; margin-top: 10px;">
+            Porosia u krye me sukses!
+        </div>
+        
     </div>
 
     <!-- Modal for order confirmation -->
@@ -114,6 +119,49 @@
 
             // Show the modal
             document.getElementById('notification').style.display = 'block';
+             // Dërgo të dhënat në backend për t'i ruajtur në SQL
+    const orderData = {
+        Emri_Klientit: customerName,
+        Produkti: product,
+        Sasia: parseInt(quantity), // Sigurohu që sasia është numër
+        Adresa: address,
+        Metoda_e_Pageses: paymentMethod
+    };
+
+    // Dërgo të dhënat në backend (OrderController)
+   // Dërgo të dhënat në backend (OrderController)
+fetch('https://localhost:7177/api/Order/order', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(orderData),
+})
+.then(response => {
+    if (!response.ok) {
+        throw new Error('Përgjigje e gabuar nga backend');
+    }
+    return response.json();
+})
+.then(data => {
+    console.log('Porosia është krijuar:', data);
+
+    // Shfaq mesazhin e suksesit
+    const successMessage = document.getElementById('successMessage');
+    successMessage.style.display = 'block';
+
+    // Pastro formularin
+    document.getElementById('orderForm').reset();
+
+    // Fshi mesazhin pas 5 sekondash
+    setTimeout(() => {
+        successMessage.style.display = 'none';
+    }, 5000);
+})
+.catch(error => {
+    console.error('Gabim në krijimin e porosisë:', error);
+});
+
 
             // If payment method is card, redirect to card.html after a short delay
             if (paymentMethod === "card") {
