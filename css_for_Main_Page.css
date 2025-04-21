@@ -64,7 +64,7 @@
 
 .restaurant-name {
     color: white; /* Set the color here */
-    font-size: 12rem; /* Increased font size for better visibility */
+    font-size: 8rem; /* Increased font size for better visibility */
     font-weight: bold; 
     text-align: center;
 }
